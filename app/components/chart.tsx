@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 
 type DatasetVisibility = {
@@ -12,7 +12,6 @@ interface DomainChartProps {
 
 const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
   const chartRef = useRef<null | HTMLCanvasElement>(null);
-  const [myChart, setMyChart] = useState<Chart | null>(null);
 
   useEffect(() => {
     if (!chartRef.current) return;
@@ -95,12 +94,11 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
       },
     });
 
-    setMyChart(chartInstance);
-
+    // Cleanup function to destroy the chart instance when component unmounts
     return () => {
       chartInstance.destroy();
     };
-  }, [datasetVisibility]);
+  }, [datasetVisibility]); // Re-run effect when datasetVisibility changes
 
   return (
     <div>
