@@ -16,3 +16,4 @@ const MissionCard = ({ title, text, className }: MissionCardProps) => {
 };
 
 export default MissionCard;
+
