@@ -1,5 +1,6 @@
 import Carousel from "./components/carousel";
 import DomainChart from "./components/chart";
+import Footer from "./components/footer";
 import Hero from "./components/hero";
 import Navbar from "./components/Navbar";
 
@@ -32,6 +33,7 @@ const HomePage: React.FC = () => {
           <DomainChart />
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
