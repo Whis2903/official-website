@@ -12,7 +12,7 @@ function Navbar() {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <div className="flex justify-between w-[97%] items-center border-4 rounded-r-full rounded-l-full border-blue-500 h-16 mt-5 p-3 shadow-lg">
         <a href="/" className="text-2xl font-medium">
           <Image
