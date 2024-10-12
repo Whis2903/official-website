@@ -86,7 +86,7 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
           r: {
             pointLabels: {
               font: {
-                size: 30,
+                size: 16, // Adjust this value for smaller font size
               },
             },
           },
