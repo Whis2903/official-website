@@ -17,13 +17,13 @@ function About() {
         <div className="w-full flex justify-center mt-10 mb-8">
           <h1 className="text-center text-4xl font-bold text-blue-500">About Us</h1>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between place-content-center items-center w-full px-10">
-          <div className="text-center lg:text-left lg:w-[50%]">
+        <div className="flex flex-col lg:flex-row justify-between place-content-center items-center w-full px-4 md:px-10">
+          <div className="text-center lg:text-left lg:w-[50%] overflow-hidden">
             <p className="text-2xl font-medium">
               The LinkedIn Developer’s Society is a dynamic student-led club focused on empowering students with cutting-edge skills in AI, machine learning, web development, business strategy, and editorial work. Our goal is to foster a collaborative environment where students can expand their knowledge, participate in real-world projects, and grow both personally and professionally. Through workshops, mentorship, and hands-on experience, we prepare our members for the fast-evolving job market, equipping them with the technical and soft skills needed to thrive in various industries. We welcome students of all backgrounds who share a passion for learning, problem-solving, and innovation.
             </p>
           </div>
-          <Image src="/aboutus.png" alt="About Us" width={550} height={550} />
+          <Image src="/aboutus.png" alt="About Us" width={550} height={550} className="max-w-full h-auto" />
         </div>
       </section>
 
@@ -39,7 +39,7 @@ function About() {
           dicta reprehenderit ab veritatis nostrum nihil?
         </h1>
         <div className="flex flex-col place-content-center place-items-center gap-0 w-full">
-          <Image src="/network.png" alt="Network" width={800} height={600} />
+          <Image src="/network.png" alt="Network" width={800} height={600} className="max-w-full h-auto" />
           <div className="bg-black w-full h-auto p-10">
             <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 space-y-6 lg:space-y-0 lg:space-x-6 place-content-center place-items-center">
               <MissionCard
@@ -47,18 +47,21 @@ function About() {
                 text={
                   "Our vision at the LinkedIn Developer’s Society is to create a vibrant community where students can thrive by mastering cutting-edge technologies and professional skills. We aim to bridge the gap between academic learning and real-world industry practices, empowering students to become innovative leaders who will shape the future of technology, business, and society."
                 }
+                className="h-40 lg:h-auto px-0 md:px-4" // Removed left/right padding for small screens
               />
               <MissionCard
                 title={"Motivation"}
                 text={
                   "Our club is passionate about learning and collaboration, aiming to equip students with the skills and confidence needed to navigate the digital world. We foster an inclusive environment that prioritizes creativity, critical thinking, and teamwork, empowering members to explore new horizons in AI, machine learning, web development, and business strategy."
                 }
+                className="h-40 lg:h-auto px-0 md:px-4" // Removed left/right padding for small screens
               />
               <MissionCard
                 title={"Goal"}
                 text={
                   "Our goal is to provide a platform where students can engage in hands-on projects, attend workshops, and benefit from mentorship programs that prepare them for success in both their academic and professional journeys. By cultivating technical expertise and essential soft skills, we aim to develop well-rounded individuals ready to excel in the dynamic industries of today and tomorrow."
                 }
+                className="h-40 lg:h-auto px-0 md:px-4" // Removed left/right padding for small screens
               />
             </div>
             <div className="grid grid-cols-3 place-items-center place-content-center w-full mt-14">
@@ -94,7 +97,7 @@ function About() {
             width={1500}
             height={600}
             alt="Curvy Background"
-            className="-translate-y-1"
+            className="-translate-y-1 max-w-full h-auto" // Added max-w-full for responsiveness
           />
         </div>
       </section>

@@ -6,9 +6,9 @@ import React from 'react';
 const Projects: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen"> {/* Flex column layout and minimum height for full screen */}
-      <Navbar /> 
+      <Navbar />
       <div className="container px-4 lg:mx-auto my-10 flex-grow"> {/* Allow content to grow */}
-        <h1 className="text-center text-4xl font-bold text-blue-500 mb-8">Our Projects</h1>
+        <h1 className="text-center text-2xl md:text-4xl font-bold text-blue-500 mb-8">Our Projects</h1>
         
         {/* Commented out the existing event listings */}
         {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
           />
           <h2 className="text-3xl font-bold text-blue-500">Coming Soon!</h2>
           <p className="mt-4 text-xl text-center">
-            We are working hard to bring you exciting events. Stay tuned for updates!
+            We are working hard to bring you exciting Projects. Stay tuned for updates!
           </p>
         </div>
       </div>
