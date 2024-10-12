@@ -23,14 +23,10 @@ function About() {
           <div className="text-center lg:text-left lg:w-[50%]">
             <p className="text-2xl font-medium">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius,
-              eligendi? Optio molestiae beatae quisquam minus repellendus eius
-              impedit at corporis. Laborum harum nobis commodi? Veniam eius
-              saepe magnam qui assumenda eum nobis ab, expedita voluptates
-              reprehenderit porro quis sequi. Pariatur expedita dignissimos hic
-              doloribus veritatis voluptas dolores voluptatem deserunt mollitia!
+              eligendi? Optio m
             </p>
           </div>
-          <Image src={"/aboutus.png"} alt={""} width={550} height={550} />
+          <Image src="/aboutus.png" alt="About Us" width={550} height={550} />
         </div>
       </section>
 
@@ -38,9 +34,7 @@ function About() {
       <section className="flex flex-col place-content-center place-items-center gap-5">
         <div className="grid grid-cols-3 place-content-center place-items-center w-full">
           <div className="h-[2px] w-full bg-blue-500" />
-          <h1 className="text-center text-2xl lg:text-4xl font-semibold">
-            Our Mission
-          </h1>
+          <h1 className="text-center text-2xl lg:text-4xl font-semibold">Our Mission</h1>
           <div className="h-[2px] w-full bg-blue-500" />
         </div>
         <h1 className="text-center lg:text-left text-2xl font-medium">
@@ -48,7 +42,7 @@ function About() {
           dicta reprehenderit ab veritatis nostrum nihil?
         </h1>
         <div className="flex flex-col place-content-center place-items-center gap-0 w-full">
-          <Image src="/network.png" alt="" width={800} height={600} />
+          <Image src="/network.png" alt="Network" width={800} height={600} />
           <div className="bg-black w-full h-auto p-10">
             <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 space-y-6 lg:space-y-0 lg:space-x-6 place-content-center place-items-center">
               <MissionCard
@@ -72,41 +66,46 @@ function About() {
             </div>
             <div className="grid grid-cols-3 place-items-center place-content-center w-full mt-14">
               <div className="h-[2px] w-full bg-blue-500" />
-              <h1 className="text-center text-white text-xl lg:text-4xl font-semibold">
-                Our Sponsors
-              </h1>
+              <h1 className="text-center text-white text-xl lg:text-4xl font-semibold">Our Sponsors</h1>
               <div className="h-[2px] w-full bg-blue-500" />
             </div>
+
             {/* Sponsors */}
-            <div className="grid grid-rows-2 grid-cols-2 lg:grid-cols-4 gap-4 place-content-center place-items-center mt-5">
-              {["Sponsor1", "Sponsor2", "Sponsor3", "Sponsor4"].map(
-                (name, index) => (
-                  <div
-                    className="flex flex-col items-center relative group"
-                    key={index}
-                  >
-                    <div className="w-32 h-32 bg-gray-300 rounded-full mb-2"></div>
-                    <div>
-                      <h1 className="text-white text-2xl">{name}</h1>
-                    </div>
-                  </div>
-                )
-              )}
+            <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-2 gap-4 place-content-center place-items-center mt-5">
+              <div className="flex flex-col items-center relative group">
+                <div className="w-32 h-32 rounded-full overflow-hidden mb-2">
+                  <img
+                    src="/srm.png" // Replace with the correct path for Sponsor 1
+                    alt="SRMIST KTR"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col items-center relative group">
+                <div className="w-32 h-32 rounded-full overflow-hidden mb-2">
+                  <img
+                    src="/dsbs.png" // Replace with the correct path for Sponsor 2
+                    alt="DSBS"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <Image
             src="/curvy.png"
             width={1500}
             height={600}
-            alt={""}
+            alt="Curvy Background"
             className="-translate-y-1"
-          ></Image>
+          />
         </div>
       </section>
+
       {/* FAQ */}
       <section className="flex flex-col gap-5 place-content-center place-items-center">
         <h1 className="text-center text-4xl font-semibold mt-2">
-          We are here to answer all your question :)
+          We are here to answer all your questions :)
         </h1>
         <div className="flex flex-col place-content-center place-items-center gap-5">
           <p className="text-xl lg:text-2xl font-medium">
@@ -121,6 +120,7 @@ function About() {
           </button>
         </div>
       </section>
+
       <Footer />
     </div>
   );
