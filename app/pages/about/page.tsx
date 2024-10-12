@@ -8,13 +8,15 @@ import React from "react";
 function About() {
   return (
     <div>
-      <Navbar />
+      <div className="flex place-content-center place-items-center">
+        <Navbar />
+      </div>
 
       {/* About Us */}
       <section>
         <div className="grid grid-cols-3 place-content-center place-items-center w-full">
           <div className="h-[2px] w-[97%] bg-blue-500" />
-          <h1 className="text-4xl font-semibold">About Us</h1>
+          <h1 className="text-2xl lg:text-4xl font-semibold">About Us</h1>
           <div className="h-[2px] w-[97%] bg-blue-500" />
         </div>
         <div className="flex flex-col lg:flex-row justify-between place-content-center items-center w-full px-10">
@@ -35,9 +37,11 @@ function About() {
       {/* Our Mission */}
       <section className="flex flex-col place-content-center place-items-center gap-5">
         <div className="grid grid-cols-3 place-content-center place-items-center w-full">
-          <div className="h-[2px] w-[97%] bg-blue-500" />
-          <h1 className="text-xl lg:text-4xl font-semibold">Our Mission</h1>
-          <div className="h-[2px] w-[97%] bg-blue-500" />
+          <div className="h-[2px] w-full bg-blue-500" />
+          <h1 className="text-center text-2xl lg:text-4xl font-semibold">
+            Our Mission
+          </h1>
+          <div className="h-[2px] w-full bg-blue-500" />
         </div>
         <h1 className="text-center lg:text-left text-2xl font-medium">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
@@ -66,9 +70,9 @@ function About() {
                 }
               />
             </div>
-            <div className="flex items-center place-content-center w-full mt-14">
+            <div className="grid grid-cols-3 place-items-center place-content-center w-full mt-14">
               <div className="h-[2px] w-full bg-blue-500" />
-              <h1 className="text-white text-xl lg:text-4xl font-semibold">
+              <h1 className="text-center text-white text-xl lg:text-4xl font-semibold">
                 Our Sponsors
               </h1>
               <div className="h-[2px] w-full bg-blue-500" />
@@ -108,16 +112,16 @@ function About() {
           <p className="text-xl lg:text-2xl font-medium">
             Some frequently asked questions
           </p>
-          <FaqCard/>
-          <FaqCard/>
-          <FaqCard/>
+          <FaqCard />
+          <FaqCard />
+          <FaqCard />
           <h3 className="text-xl font-semibold">Got some more questions?</h3>
           <button className="bg-blue-200 border-2 border-blue-500 px-4 py-2 rounded-2xl">
             <span className="text-lg font-medium">Get in touch</span>
           </button>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
