@@ -5,7 +5,7 @@ const TeamPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 mt-8"> {/* Added margin-top here */}
         {/* Core Section */}
         <section className="flex flex-col">
           <div className="flex place-content-center place-items-center bg-blue-600 rounded-r-full min-h-fit max-w-fit">
