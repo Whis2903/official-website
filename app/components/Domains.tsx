@@ -41,59 +41,84 @@ const domainDetails: { [key: string]: DomainInfo } = {
 
 const Domain = () => {
   const [currentDomain, setCurrentDomain] = useState<keyof DatasetVisibility>("Web-Dev");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDataset = (dataset: keyof DatasetVisibility) => {
-    setCurrentDomain(dataset); // Update the current domain
-
-    const updatedVisibility: DatasetVisibility = {
-      "Web-Dev": false,
-      Events: false,
-      Editorial: false,
-      Corporate: false,
-      "AI/ML": false,
-    };
-    updatedVisibility[dataset] = true; // Only the selected dataset will be visible
-
-    // No need to manage dataset visibility here if you're only updating the current domain
+    setCurrentDomain(dataset);
+    setIsDropdownOpen(false); // Close the dropdown after selecting an option
   };
 
   return (
-    <div>
+    <section>
+      {/* Title Section */}
+      <div className="grid grid-cols-3 place-content-center place-items-center w-full mb-4">
+        <div className="h-[2px] w-[97%] bg-blue-500" />
+        <h1 className="text-4xl font-semibold">Our Domains</h1>
+        <div className="h-[2px] w-[97%] bg-blue-500" />
+      </div>
+
       {/* Button Section */}
-      <div className="flex justify-center space-x-4 mb-4">
-        {Object.keys(domainDetails).map((key) => (
+      <div className="flex flex-col items-center mb-6">
+        {/* Desktop buttons */}
+        <div className="hidden sm:flex justify-center space-x-6 mb-6">
+          {Object.keys(domainDetails).map((key) => (
+            <button
+              key={key}
+              onClick={() => toggleDataset(key as keyof DatasetVisibility)}
+              className={`px-6 py-3 rounded text-lg ${
+                currentDomain === key
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-300 text-gray-600"
+              }`}
+            >
+              {key}
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile dropdown */}
+        <div className="relative sm:hidden">
           <button
-            key={key}
-            onClick={() => toggleDataset(key as keyof DatasetVisibility)}
-            className={`px-4 py-2 rounded ${
-              currentDomain === key
-                ? "bg-blue-500 text-white"
-                : "bg-gray-300 text-gray-600"
-            }`}
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="px-6 py-3 rounded text-lg bg-blue-500 text-white"
           >
-            {key}
+            {currentDomain}
           </button>
-        ))}
+          {isDropdownOpen && (
+            <div className="absolute mt-2 bg-white border border-gray-300 rounded shadow-lg">
+              {Object.keys(domainDetails).map(
+                (key) =>
+                  key !== currentDomain && (
+                    <button
+                      key={key}
+                      onClick={() => toggleDataset(key as keyof DatasetVisibility)}
+                      className="block px-6 py-3 text-left w-full text-gray-600 hover:bg-gray-100"
+                    >
+                      {key}
+                    </button>
+                  )
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Flexbox for Title/Description and Chart */}
-      <div className="flex">
-        {/* Left Side for Title and Description */}
-        <div className="flex flex-col justify-center items-center w-1/2 p-4">
+      <div className="flex flex-col-reverse sm:flex-row">
+        {/* Left Side for Title and Description (comes first in mobile view) */}
+        <div className="flex flex-col justify-center items-center w-full sm:w-1/2 p-4">
           <h1 className="text-2xl font-bold mb-2 text-center">
             {domainDetails[currentDomain].title}
           </h1>
-          <p className="mb-4 text-center">
-            {domainDetails[currentDomain].description}
-          </p>
+          <p className="mb-4 text-center">{domainDetails[currentDomain].description}</p>
         </div>
 
-        {/* Right Side for Chart */}
-        <div className="w-1/2 p-4">
-          <DomainChart datasetVisibility={{ [currentDomain]: true }} /> {/* Pass only the current domain */}
+        {/* Right Side for Chart (comes second in mobile view) */}
+        <div className="w-full sm:w-1/2 p-4">
+          <DomainChart datasetVisibility={{ [currentDomain]: true }} />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
