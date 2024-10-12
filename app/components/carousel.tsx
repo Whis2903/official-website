@@ -20,25 +20,26 @@ function Carousel() {
   }, [Data.length]);
 
   return (
-    <section>
-    <div className="grid grid-cols-3 place-content-center place-items-center w-full">
-      <div className="h-[2px] w-[97%] bg-blue-500" />
-      <h1 className="text-4xl font-semibold">Our Events</h1>
-      <div className="h-[2px] w-[97%] bg-blue-500" />
-    </div>
-    <div className="flex place-content-center place-items-center my-10">
-      <div className="flex place-content-center place-items-center h-[25rem] w-[95%] bg-blue-500 rounded-2xl">
-        <div className="h-[92%] w-[98%] bg-white rounded-2xl overflow-hidden">
-          <img
-            src={Data[currentIndex].banner}
-            alt={`Slide ${currentIndex + 1}`}
-            className="object-cover w-full h-full rounded-2xl transition-all duration-500"
-          />
+    <section className="mt-10"> {/* Added margin-top class */}
+      <div className="grid grid-cols-3 place-content-center place-items-center w-full">
+        <div className="h-[2px] w-[97%] bg-blue-500" />
+        <h1 className="text-4xl font-semibold text-center md:text-left"> {/* Centered text on mobile */}
+          Our Events
+        </h1>
+        <div className="h-[2px] w-[97%] bg-blue-500" />
+      </div>
+      <div className="flex place-content-center place-items-center my-10">
+        <div className="flex place-content-center place-items-center h-[25rem] w-[95%] bg-blue-500 rounded-2xl">
+          <div className="h-[92%] w-[98%] bg-white rounded-2xl overflow-hidden">
+            <img
+              src={Data[currentIndex].banner}
+              alt={`Slide ${currentIndex + 1}`}
+              className="object-cover w-full h-full rounded-2xl transition-all duration-500"
+            />
+          </div>
         </div>
       </div>
-    </div>
     </section>
-    
   );
 }
 
