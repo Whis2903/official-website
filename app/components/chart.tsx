@@ -59,7 +59,7 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
             hidden: !datasetVisibility["Editorial"],
           },
           {
-            label: "Corporate",
+            label: "Business",
             data: corp,
             backgroundColor: "#00FFFF80", // Cyan
             borderColor: "#00FFFF",
