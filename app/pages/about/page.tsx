@@ -14,16 +14,13 @@ function About() {
 
       {/* About Us */}
       <section>
-        <div className="grid grid-cols-3 place-content-center place-items-center w-full">
-          <div className="h-[2px] w-[97%] bg-blue-500" />
-          <h1 className="text-2xl lg:text-4xl font-semibold">About Us</h1>
-          <div className="h-[2px] w-[97%] bg-blue-500" />
+        <div className="w-full flex justify-center mt-10 mb-8">
+          <h1 className="text-center text-4xl font-bold text-blue-500">About Us</h1>
         </div>
         <div className="flex flex-col lg:flex-row justify-between place-content-center items-center w-full px-10">
           <div className="text-center lg:text-left lg:w-[50%]">
             <p className="text-2xl font-medium">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius,
-              eligendi? Optio m
+              The LinkedIn Developer’s Society is a dynamic student-led club focused on empowering students with cutting-edge skills in AI, machine learning, web development, business strategy, and editorial work. Our goal is to foster a collaborative environment where students can expand their knowledge, participate in real-world projects, and grow both personally and professionally. Through workshops, mentorship, and hands-on experience, we prepare our members for the fast-evolving job market, equipping them with the technical and soft skills needed to thrive in various industries. We welcome students of all backgrounds who share a passion for learning, problem-solving, and innovation.
             </p>
           </div>
           <Image src="/aboutus.png" alt="About Us" width={550} height={550} />
@@ -48,19 +45,19 @@ function About() {
               <MissionCard
                 title={"Vision"}
                 text={
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, minima earum. Accusamus placeat alias voluptates necessitatibus molestiae, vitae consequatur corporis ducimus harum atque. Vel, debitis. Aperiam, magni doloremque? Autem, nihil?"
+                  "Our vision at the LinkedIn Developer’s Society is to create a vibrant community where students can thrive by mastering cutting-edge technologies and professional skills. We aim to bridge the gap between academic learning and real-world industry practices, empowering students to become innovative leaders who will shape the future of technology, business, and society."
                 }
               />
               <MissionCard
                 title={"Motivation"}
                 text={
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, minima earum. Accusamus placeat alias voluptates necessitatibus molestiae, vitae consequatur corporis ducimus harum atque. Vel, debitis. Aperiam, magni doloremque? Autem, nihil?"
+                  "Driven by a passion for learning, problem-solving, and collaboration, our club is motivated by the desire to equip students with the skills and confidence to tackle the challenges of an ever-evolving digital world. We are committed to fostering an inclusive environment where creativity, critical thinking, and teamwork are at the forefront, enabling our members to explore new horizons in AI, machine learning, web development, and business strategy."
                 }
               />
               <MissionCard
                 title={"Goal"}
                 text={
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, minima earum. Accusamus placeat alias voluptates necessitatibus molestiae, vitae consequatur corporis ducimus harum atque. Vel, debitis. Aperiam, magni doloremque? Autem, nihil?"
+                  "Our goal is to provide a platform where students can engage in hands-on projects, attend workshops, and benefit from mentorship programs that prepare them for success in both their academic and professional journeys. By cultivating technical expertise and essential soft skills, we aim to develop well-rounded individuals ready to excel in the dynamic industries of today and tomorrow."
                 }
               />
             </div>
