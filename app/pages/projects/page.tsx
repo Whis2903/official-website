@@ -3,13 +3,15 @@ import Footer from '@/app/components/footer';
 import Navbar from '@/app/components/Navbar';
 import React from 'react';
 
-const Events: React.FC = () => {
+const Projects: React.FC = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen"> {/* Flex column layout and minimum height for full screen */}
       <Navbar /> 
-      <div className="container px-4 lg:mx-auto my-10">
+      <div className="container px-4 lg:mx-auto my-10 flex-grow"> {/* Allow content to grow */}
         <h1 className="text-center text-4xl font-bold text-blue-500 mb-8">Our Projects</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        {/* Commented out the existing event listings */}
+        {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {Array.from({ length: 6 }).map((_, index) => (
             <div key={index} className="border-2 border-blue-500 bg-blue-200 rounded-xl p-4"> 
               <div className="bg-blue-500 h-10 rounded-r-full rounded-l-full flex items-center px-2">
@@ -28,10 +30,24 @@ const Events: React.FC = () => {
               <div className="mt-2 text-center font-medium">Sub-heading</div>
             </div>
           ))}
+        </div> */}
+
+        {/* Coming Soon Message */}
+        <div className="flex flex-col items-center justify-center h-80 mb-10"> {/* Added mb-10 for margin below */}
+          <img 
+            src="/hero.png" 
+            alt="Coming Soon Hero" 
+            className="mb-4 max-w-full h-auto rounded" // Adjust size as needed
+          />
+          <h2 className="text-3xl font-bold text-blue-500">Coming Soon!</h2>
+          <p className="mt-4 text-xl text-center">
+            We are working hard to bring you exciting events. Stay tuned for updates!
+          </p>
         </div>
       </div>
-      <Footer/>
+      <Footer /> {/* Footer will now be positioned at the bottom */}
     </div>
   );
 };
-export default Events;
+
+export default Projects;
