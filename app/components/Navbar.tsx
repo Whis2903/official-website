@@ -1,10 +1,10 @@
 "use client";
+
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-const Navbar: React.FC = () => {
+function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   function handleMenu() {
@@ -12,72 +12,84 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <nav className="flex items-center justify-between bg-white border-2 border-blue-500 rounded-full my-4 py-2 px-4 shadow-lg h-16 w-[97%]">
-      <Link href="/" className="flex items-center">
-        <Image src="/logo.png" alt="Logo" width={250} height={10} className="hidden lg:block"/>
-        <Image src="/logo.png" alt="Logo" width={200} height={10} className="lg:hidden"/>
-      </Link>
-      <div className="md:hidden">
-        <RxHamburgerMenu size={30} color="#3b82f6" onClick={handleMenu} />
-      </div>
-      <div className="hidden md:block">
-        <div className="flex space-x-6">
-          <Link
+    <div className="flex flex-col items-center w-full">
+      <div className="flex justify-between w-[97%] items-center border-4 rounded-r-full rounded-l-full border-blue-500 h-16 mt-5 p-3 shadow-lg">
+        <a href="/" className="text-2xl font-medium">
+          <Image
+            src="/logo.png"
+            alt=""
+            width={250}
+            height={10}
+            className="hidden lg:block"
+          />
+          <Image
+            src="/logo.png"
+            alt=""
+            width={200}
+            height={10}
+            className="lg:hidden"
+          />
+        </a>
+        <div className="lg:hidden" onClick={handleMenu}>
+          <RxHamburgerMenu size={35} color="#3b82f6" />
+        </div>
+        <div className="hidden lg:flex items-center gap-3">
+          <a
             href="/pages/team"
-            className="text-lg font-semibold text-blue-500 hover:underline"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
           >
             Team
-          </Link>
-          <Link
+          </a>
+          <a
             href="/pages/about"
-            className="text-lg font-semibold text-blue-500 hover:underline"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
           >
             About Us
-          </Link>
-          <Link
+          </a>
+          <a
             href="/pages/projects"
-            className="text-lg font-semibold text-blue-500 hover:underline"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
           >
             Projects
-          </Link>
-          <Link
+          </a>
+          <a
             href="/pages/events"
-            className="text-lg font-semibold text-blue-500 hover:underline"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
           >
             Events
-          </Link>
+          </a>
         </div>
       </div>
       {menuOpen && (
-        <div className="lg:hidden w-[95%] flex flex-col items-center gap-4 mt-2 p-4 border-2 border-black rounded-2xl">
-          <Link //Team Page
+        <div className="lg:hidden w-[95%] flex flex-col items-end gap-4 mt-2 p-4 border-2 border-black rounded-2xl">
+          <a
             href="/pages/team"
-            className="text-lg font-semibold text-blue-500 hover:underline"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
           >
             Team
-          </Link>
-          <Link //About Us Page
+          </a>
+          <a
             href="/pages/about"
-            className="text-lg font-semibold text-blue-500 hover:underline"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
           >
             About Us
-          </Link>
-          <Link // Projects Page
+          </a>
+          <a
             href="/pages/projects"
-            className="text-lg font-semibold text-blue-500 hover:underline"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
           >
             Projects
-          </Link>
-          <Link // Events Page
+          </a>
+          <a
             href="/pages/events"
-            className="text-lg font-semibold text-blue-500 hover:underline"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
           >
             Events
-          </Link>
+          </a>
         </div>
       )}
-    </nav>
+    </div>
   );
-};
+}
 
 export default Navbar;
