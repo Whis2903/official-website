@@ -12,9 +12,10 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <nav className="flex items-center justify-between bg-white border-2 border-blue-500 rounded-full mx-10 my-4 py-2 px-4 shadow-lg h-16 w-[97%]">
+    <nav className="flex items-center justify-between bg-white border-2 border-blue-500 rounded-full my-4 py-2 px-4 shadow-lg h-16 w-[97%]">
       <Link href="/" className="flex items-center">
-        <Image src="/logo.png" alt="Logo" width={250} height={10} />
+        <Image src="/logo.png" alt="Logo" width={250} height={10} className="hidden lg:block"/>
+        <Image src="/logo.png" alt="Logo" width={200} height={10} className="lg:hidden"/>
       </Link>
       <div className="md:hidden">
         <RxHamburgerMenu size={30} color="#3b82f6" onClick={handleMenu} />
