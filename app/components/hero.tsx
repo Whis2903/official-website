@@ -23,9 +23,6 @@ const Hero = () => {
           </h1>
           <div className="flex flex-col gap-4">
             <p className="text-xl lg:text-2xl font-medium">
-              Empowering the next generation of innovators, creators, and leaders in technology. At the LinkedIn Developer&apos;s Society, we connect passionate minds, foster collaboration, and unlock the potential to shape the future of AI, web development, and beyond.
-            </p>
-            <p className="text-xl lg:text-2xl font-medium">
               Join a community where learning never stops, and ambition turns into real-world impact. Ready to take your skills to the next level? Dive in and start building the future today!
             </p>
           </div>
