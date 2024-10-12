@@ -1,10 +1,17 @@
-"use client";
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import { LuInstagram, LuLinkedin, LuTwitter } from "react-icons/lu";
+import Register from "./register";
 
 const Hero = () => {
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
   const handleJoinUsClick = () => {
-    window.location.href = "/pages/recruitmentPage"; 
+    setIsRegisterOpen(true); // Open the Register pop-up
+  };
+
+  const handleCloseModal = () => {
+    setIsRegisterOpen(false); // Close the Register pop-up
   };
 
   return (
@@ -42,8 +49,23 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal for Register Component */}
+      {isRegisterOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white/30 backdrop-blur-md p-6 rounded-lg shadow-lg relative">
+            <button
+              className="text-2xl absolute top-2 right-2 text-gray-600"
+              onClick={handleCloseModal}
+            >
+              X
+            </button>
+            <Register />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Hero
+export default Hero;
