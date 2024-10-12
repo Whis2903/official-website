@@ -51,7 +51,7 @@ function About() {
               <MissionCard
                 title={"Motivation"}
                 text={
-                  "Driven by a passion for learning, problem-solving, and collaboration, our club is motivated by the desire to equip students with the skills and confidence to tackle the challenges of an ever-evolving digital world. We are committed to fostering an inclusive environment where creativity, critical thinking, and teamwork are at the forefront, enabling our members to explore new horizons in AI, machine learning, web development, and business strategy."
+                  "Our club is passionate about learning and collaboration, aiming to equip students with the skills and confidence needed to navigate the digital world. We foster an inclusive environment that prioritizes creativity, critical thinking, and teamwork, empowering members to explore new horizons in AI, machine learning, web development, and business strategy."
                 }
               />
               <MissionCard
