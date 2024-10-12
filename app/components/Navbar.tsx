@@ -34,6 +34,13 @@ function Navbar() {
           <RxHamburgerMenu size={35} color="#3b82f6" />
         </div>
         <div className="hidden lg:flex items-center gap-3">
+          {/* Added Home link */}
+          <a
+            href="/"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+          >
+            Home
+          </a>
           <a
             href="/pages/team"
             className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
@@ -62,6 +69,13 @@ function Navbar() {
       </div>
       {menuOpen && (
         <div className="lg:hidden w-[95%] flex flex-col items-end gap-4 mt-2 p-4 border-2 border-black rounded-2xl">
+          {/* Added Home link */}
+          <a
+            href="/"
+            className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+          >
+            Home
+          </a>
           <a
             href="/pages/team"
             className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
