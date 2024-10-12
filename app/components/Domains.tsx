@@ -49,11 +49,11 @@ const Domain = () => {
   };
 
   return (
-    <section>
+    <section className="bg-white text-gray-800 p-6 rounded-lg shadow-md">
       {/* Title Section */}
       <div className="grid grid-cols-3 place-content-center place-items-center w-full mb-4">
         <div className="h-[2px] w-[97%] bg-blue-500" />
-        <h1 className="text-4xl font-semibold">Our Domains</h1>
+        <h1 className="text-4xl font-semibold text-center">Our Domains</h1>
         <div className="h-[2px] w-[97%] bg-blue-500" />
       </div>
 
@@ -65,11 +65,11 @@ const Domain = () => {
             <button
               key={key}
               onClick={() => toggleDataset(key as keyof DatasetVisibility)}
-              className={`px-6 py-3 rounded text-lg ${
+              className={`px-6 py-3 rounded-lg text-lg transition duration-200 ${
                 currentDomain === key
-                  ? "bg-blue-500 text-white"
+                  ? "bg-blue-500 text-white shadow-lg"
                   : "bg-gray-300 text-gray-600"
-              }`}
+              } hover:bg-blue-400 hover:text-white`}
             >
               {key}
             </button>
@@ -80,19 +80,19 @@ const Domain = () => {
         <div className="relative sm:hidden">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="px-6 py-3 rounded text-lg bg-blue-500 text-white"
+            className="px-6 py-3 rounded-lg text-lg bg-blue-500 text-white shadow-lg hover:bg-blue-400 transition duration-200"
           >
             {currentDomain}
           </button>
           {isDropdownOpen && (
-            <div className="absolute mt-2 bg-white border border-gray-300 rounded shadow-lg">
+            <div className="absolute mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
               {Object.keys(domainDetails).map(
                 (key) =>
                   key !== currentDomain && (
                     <button
                       key={key}
                       onClick={() => toggleDataset(key as keyof DatasetVisibility)}
-                      className="block px-6 py-3 text-left w-full text-gray-600 hover:bg-gray-100"
+                      className="block px-6 py-3 text-left w-full text-gray-600 hover:bg-gray-100 transition duration-200"
                     >
                       {key}
                     </button>
@@ -107,7 +107,7 @@ const Domain = () => {
       <div className="flex flex-col-reverse sm:flex-row">
         {/* Left Side for Title and Description (comes first in mobile view) */}
         <div className="flex flex-col justify-center items-center w-full sm:w-1/2 p-4">
-          <h1 className="text-2xl font-bold mb-2 text-center">
+          <h1 className="text-2xl font-bold mb-2 text-center text-blue-500">
             {domainDetails[currentDomain].title}
           </h1>
           <p className="mb-4 text-center">{domainDetails[currentDomain].description}</p>
