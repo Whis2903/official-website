@@ -7,13 +7,22 @@ import React from "react";
 
 function About() {
   return (
-    <div>
+    <div className="bg-gray-50">
       <div className="flex place-content-center place-items-center">
         <Navbar />
       </div>
 
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-blue-500 to-blue-300 p-8 text-white text-center mt-1"> {/* Added mt-10 for margin-top */}
+        <h1 className="text-5xl font-bold mb-4">Welcome to the LinkedIn Developer’s Society!</h1>
+        <p className="text-xl max-w-2xl mx-auto mb-8">
+          Empowering students with skills in AI, machine learning, web development, and more.
+        </p>
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-white opacity-20 rounded-t-full"></div>
+      </section>
+
       {/* About Us */}
-      <section>
+      <section className="py-10">
         <div className="w-full flex justify-center mt-10 mb-8">
           <h1 className="text-center text-4xl font-bold text-blue-500">About Us</h1>
         </div>
@@ -47,21 +56,21 @@ function About() {
                 text={
                   "Our vision at the LinkedIn Developer’s Society is to create a vibrant community where students can thrive by mastering cutting-edge technologies and professional skills. We aim to bridge the gap between academic learning and real-world industry practices, empowering students to become innovative leaders who will shape the future of technology, business, and society."
                 }
-                className="h-40 lg:h-auto px-0 md:px-4" // Removed left/right padding for small screens
+                className="h-40 lg:h-auto px-0 md:px-4 transition-transform transform hover:scale-105" // Added hover effect
               />
               <MissionCard
                 title={"Motivation"}
                 text={
                   "Our club is passionate about learning and collaboration, aiming to equip students with the skills and confidence needed to navigate the digital world. We foster an inclusive environment that prioritizes creativity, critical thinking, and teamwork, empowering members to explore new horizons in AI, machine learning, web development, and business strategy."
                 }
-                className="h-40 lg:h-auto px-0 md:px-4" // Removed left/right padding for small screens
+                className="h-40 lg:h-auto px-0 md:px-4 transition-transform transform hover:scale-105" // Added hover effect
               />
               <MissionCard
                 title={"Goal"}
                 text={
                   "Our goal is to provide a platform where students can engage in hands-on projects, attend workshops, and benefit from mentorship programs that prepare them for success in both their academic and professional journeys. By cultivating technical expertise and essential soft skills, we aim to develop well-rounded individuals ready to excel in the dynamic industries of today and tomorrow."
                 }
-                className="h-40 lg:h-auto px-0 md:px-4" // Removed left/right padding for small screens
+                className="h-40 lg:h-auto px-0 md:px-4 transition-transform transform hover:scale-105" // Added hover effect
               />
             </div>
             <div className="grid grid-cols-3 place-items-center place-content-center w-full mt-14">
@@ -115,7 +124,7 @@ function About() {
           <FaqCard />
           <FaqCard />
           <h3 className="text-xl font-semibold">Got some more questions?</h3>
-          <button className="bg-blue-200 border-2 border-blue-500 px-4 py-2 rounded-2xl">
+          <button className="bg-blue-200 border-2 border-blue-500 px-4 py-2 rounded-2xl hover:bg-blue-300 transition duration-200">
             <span className="text-lg font-medium">Get in touch</span>
           </button>
         </div>
