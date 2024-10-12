@@ -56,7 +56,6 @@ const Hero = () => {
               className="text-2xl absolute top-2 right-2 text-gray-600"
               onClick={handleCloseModal}
             >
-              X
             </button>
             <Register />
           </div>
