@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
           />
           <h2 className="text-3xl font-bold text-blue-500">Coming Soon!</h2>
           <p className="mt-4 text-xl text-center">
-            We are working hard to bring you exciting events. Stay tuned for updates!
+            We are working hard to bring you exciting Projects. Stay tuned for updates!
           </p>
         </div>
       </div>
