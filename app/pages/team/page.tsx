@@ -13,7 +13,7 @@ const TeamPage = () => {
               The Core
             </h2>
           </div>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {["Alice", "Bob", "Charlie", "David"].map((name, index) => (
               <div className="flex flex-col items-center relative group" key={index}>
                 <div className="w-32 h-32 bg-gray-300 rounded-full mb-2"></div>
@@ -31,7 +31,7 @@ const TeamPage = () => {
               The Heads
             </h2>
           </div>
-          <div className="grid grid-cols-5">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
             {["Eve", "Frank", "Grace", "Heidi", "Ivan"].map((name, index) => (
               <div className="flex flex-col items-center relative group" key={index}>
                 <div className="w-32 h-32 bg-gray-300 rounded-full mb-2"></div>
@@ -49,7 +49,7 @@ const TeamPage = () => {
               The Leads
             </h2>
           </div>
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
             {Array.from({ length: 20 }, (_, index) => (
               <div
                 key={index}
@@ -64,7 +64,7 @@ const TeamPage = () => {
           </div>
         </section>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
