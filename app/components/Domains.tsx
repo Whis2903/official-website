@@ -27,8 +27,8 @@ const domainDetails: { [key: string]: DomainInfo } = {
     description:
       "This domain focuses on content creation, editing, and publishing across various media platforms, emphasizing quality and audience targeting.",
   },
-  Corporate: {
-    title: "Corporate Domain",
+  Business: {
+    title: "Business Domain",
     description:
       "This domain involves corporate communications, branding, and stakeholder engagement, crucial for business success.",
   },
