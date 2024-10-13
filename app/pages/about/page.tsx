@@ -8,9 +8,7 @@ import React from "react";
 function About() {
   return (
     <div className="bg-gray-50">
-      <div className="flex place-content-center place-items-center">
-        <Navbar />
-      </div>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-500 to-blue-300 p-8 text-white text-center mt-1"> {/* Added mt-10 for margin-top */}
