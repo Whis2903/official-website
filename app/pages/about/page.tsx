@@ -1,6 +1,5 @@
 import FaqCard from "@/app/components/faqcard";
 import Footer from "@/app/components/footer";
-import MissionCard from "@/app/components/missioncard";
 import Navbar from "@/app/components/Navbar";
 import Image from "next/image";
 import React from "react";
@@ -175,7 +174,7 @@ function About() {
             width={1500}
             height={600}
             alt="Curvy Background"
-            className="-translate-y-1 max-w-full h-auto" // Added max-w-full for responsiveness
+            className="-translate-y-1 max-w-full h-auto"
           />
         </div>
       </section>
@@ -201,8 +200,8 @@ function About() {
           <div className="grid lg:grid-cols-4 grid-rows-4 py-2">
             {Array.from({ length: 16 }).map((_, index) => (
               <div
-                key={index} // Added key prop
-                className="rounded-full h-24 w-24" // Added height and width for visibility
+                key={index}
+                className="rounded-full h-24 w-24"
                 style={{
                   background: `radial-gradient(circle at 20% 10%, #D9D9D9, #0062FF, #0062FF)`,
                 }}
