@@ -16,7 +16,7 @@ const Footer = () => {
       </div>
 
       <p className="mt-4 text-sm text-gray-500 font-bold">
-        © Crafted with ❤️ by LinkedIn Developers Society 2024
+        © Crafted with ❤️ by LinkedIn Developers Society SRMIST
       </p>
     </footer>
   );
