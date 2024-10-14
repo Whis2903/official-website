@@ -123,7 +123,7 @@ const Domain = () => {
 const CustomNextArrow = (props: React.HTMLProps<HTMLDivElement>) => (
   <div
     {...props}
-    className="absolute top-1/2 right-4 transform -translate-y-1/2  text-black rounded-full w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-blue-400 transition"
+    className="absolute top-1/2 right-4 transform -translate-y-1/2 text-black rounded-full w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-blue-400 transition"
   >
     &gt;
   </div>
