@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
 
 type DatasetVisibility = {
@@ -12,6 +12,25 @@ interface DomainChartProps {
 
 const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
   const chartRef = useRef<null | HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Update the isMobile state based on window size
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640); // Consider 640px as mobile threshold
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener for resize
+    window.addEventListener("resize", handleResize);
+    
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (!chartRef.current) return;
@@ -21,19 +40,20 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
     const editorial = [50, 95, 65, 70, 85, 60]; // Editorial Domain
     const business = [60, 95, 85, 95, 95, 80]; // Business Domain
     const aiml = [95, 65, 80, 80, 65, 80]; // AI and Machine Learning Domain
-    
 
     const chartInstance = new Chart(chartRef.current, {
       type: "radar",
       data: {
-        labels: [
-          "Technical Complexity",
-          "Creativity & Innovation",
-          "Collaboration & Teamwork",
-          "Market Relevance",
-          "Communication Skills",
-          "Analytical Thinking",
-        ],
+        labels: isMobile
+          ? ["TC", "CI", "CT", "MR", "CS", "AT"] // Abbreviated labels for mobile view
+          : [
+              "Technical Complexity",
+              "Creativity & Innovation",
+              "Collaboration & Teamwork",
+              "Market Relevance",
+              "Communication Skills",
+              "Analytical Thinking",
+            ],
         datasets: [
           {
             label: "Web-Dev",
@@ -92,7 +112,7 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
             },
             pointLabels: {
               font: {
-                size: 16, // Adjust this value for smaller font size
+                size: isMobile ? 8 : 16, // Smaller font size for mobile
               },
             },
           },
@@ -104,7 +124,7 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
     return () => {
       chartInstance.destroy();
     };
-  }, [datasetVisibility]); // Re-run effect when datasetVisibility changes
+  }, [datasetVisibility, isMobile]); // Re-run effect when datasetVisibility or isMobile changes
 
   return (
     <div>
