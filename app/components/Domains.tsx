@@ -1,49 +1,53 @@
 "use client";
 import React, { useState } from "react";
 import DomainChart from "./chart"; // Adjust path if necessary
+import Image from "next/image"; // If using Next.js
+
+type DomainKeys = "Web-Dev" | "Events" | "Editorial" | "Business" | "AI/ML";
 
 type DatasetVisibility = {
-  [key: string]: boolean;
+  [key in DomainKeys]: boolean;
 };
 
 type DomainInfo = {
   title: string;
   description: string;
+  imageSrc: string; // Add an image source property for each domain
 };
 
-const domainDetails: { [key: string]: DomainInfo } = {
+const domainDetails: Record<DomainKeys, DomainInfo> = {
   "Web-Dev": {
     title: "Web Development Domain",
-    description:
-      "This domain encompasses various aspects of web development, including frontend and backend technologies, design principles, and user experience.",
+    description: "This domain encompasses various aspects of web development, including frontend and backend technologies, design principles, and user experience.",
+    imageSrc: "/webdev.gif",
   },
   Events: {
     title: "Events Domain",
-    description:
-      "This domain covers the planning, organization, and management of events, focusing on aspects like marketing, logistics, and audience engagement.",
+    description: "This domain covers the planning, organization, and management of events, focusing on aspects like marketing, logistics, and audience engagement.",
+    imageSrc: "/events.gif",
   },
   Editorial: {
     title: "Editorial Domain",
-    description:
-      "This domain focuses on content creation, editing, and publishing across various media platforms, emphasizing quality and audience targeting.",
+    description: "This domain focuses on content creation, editing, and publishing across various media platforms, emphasizing quality and audience targeting.",
+    imageSrc: "/editorial.gif",
   },
   Business: {
     title: "Business Domain",
-    description:
-      "This domain involves corporate communications, branding, and stakeholder engagement, crucial for business success.",
+    description: "This domain involves corporate communications, branding, and stakeholder engagement, crucial for business success.",
+    imageSrc: "/business.gif",
   },
   "AI/ML": {
     title: "AI and Machine Learning Domain",
-    description:
-      "This domain explores artificial intelligence and machine learning technologies, focusing on their applications and implications across industries.",
+    description: "This domain explores artificial intelligence and machine learning technologies, focusing on their applications and implications across industries.",
+    imageSrc: "/aiml.gif",
   },
 };
 
 const Domain = () => {
-  const [currentDomain, setCurrentDomain] = useState<keyof DatasetVisibility>("Web-Dev");
+  const [currentDomain, setCurrentDomain] = useState<DomainKeys>("Web-Dev");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const toggleDataset = (dataset: keyof DatasetVisibility) => {
+  const toggleDataset = (dataset: DomainKeys) => {
     setCurrentDomain(dataset);
     setIsDropdownOpen(false); // Close the dropdown after selecting an option
   };
@@ -64,7 +68,7 @@ const Domain = () => {
           {Object.keys(domainDetails).map((key) => (
             <button
               key={key}
-              onClick={() => toggleDataset(key as keyof DatasetVisibility)}
+              onClick={() => toggleDataset(key as DomainKeys)}
               className={`px-6 py-3 rounded-lg text-lg transition duration-200 ${
                 currentDomain === key
                   ? "bg-blue-500 text-white shadow-lg"
@@ -91,7 +95,7 @@ const Domain = () => {
                   key !== currentDomain && (
                     <button
                       key={key}
-                      onClick={() => toggleDataset(key as keyof DatasetVisibility)}
+                      onClick={() => toggleDataset(key as DomainKeys)}
                       className="block px-6 py-3 text-left w-full text-gray-600 hover:bg-gray-100 transition duration-200"
                     >
                       {key}
@@ -106,7 +110,15 @@ const Domain = () => {
       {/* Flexbox for Title/Description and Chart */}
       <div className="flex flex-col-reverse sm:flex-row">
         {/* Left Side for Title and Description (comes first in mobile view) */}
-        <div className="flex flex-col justify-center items-center w-full sm:w-1/2 p-4">
+        <div className="flex flex-col justify-center items-center w-full sm:w-1/2 p-1">
+          {/* Larger Image above the title */}
+          <Image
+            src={domainDetails[currentDomain].imageSrc}
+            alt={`${domainDetails[currentDomain].title} image`}
+            width={500}  // Increased width
+            height={500} // Increased height
+            className="mb-4"
+          />
           <h1 className="text-2xl font-bold mb-2 text-center text-blue-500">
             {domainDetails[currentDomain].title}
           </h1>
