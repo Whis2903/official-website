@@ -43,7 +43,8 @@ const domainDetails: Record<DomainKeys, DomainInfo> = {
 };
 
 const Domain = () => {
-  const [currentDomain, setCurrentDomain] = useState<DomainKeys>("Web-Dev");
+  const [currentDomainIndex, setCurrentDomainIndex] = useState(0);
+  const domainKeys = Object.keys(domainDetails) as DomainKeys[];
 
   const settings = {
     dots: true,
@@ -51,7 +52,7 @@ const Domain = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    afterChange: (current: number) => setCurrentDomain(Object.keys(domainDetails)[current] as DomainKeys),
+    afterChange: (current: number) => setCurrentDomainIndex(current),
   };
 
   return (
@@ -60,6 +61,25 @@ const Domain = () => {
         <div className="h-[2px] w-[97%] bg-blue-500" />
         <h1 className="text-4xl font-semibold text-center">Our Domains</h1>
         <div className="h-[2px] w-[97%] bg-blue-500" />
+      </div>
+
+      {/* Domain buttons for desktop view */}
+      <div className="hidden sm:flex justify-center mb-6 w-full">
+        {domainKeys.map((key, index) => (
+          <button
+            key={key}
+            onClick={() => setCurrentDomainIndex(index)}
+            className={`px-8 py-3 mx-2 rounded-lg text-lg transition-all duration-200 ease-in-out 
+                      ${
+                        currentDomainIndex === index
+                          ? "bg-blue-500 text-white shadow-lg" // Active button style
+                          : "bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300" // Inactive button style
+                      }
+                      hover:shadow-md hover:scale-105`} // Hover effect for all buttons
+          >
+            {domainDetails[key].title}
+          </button>
+        ))}
       </div>
 
       {/* Mobile view slider */}
@@ -87,17 +107,17 @@ const Domain = () => {
       <div className="hidden sm:flex flex-col-reverse sm:flex-row">
         <div className="flex flex-col justify-center items-center w-full sm:w-1/2 p-1">
           <Image
-            src={domainDetails[currentDomain].imageSrc}
-            alt={`${domainDetails[currentDomain].title} image`}
+            src={domainDetails[domainKeys[currentDomainIndex]].imageSrc}
+            alt={`${domainDetails[domainKeys[currentDomainIndex]].title} image`}
             width={500}
             height={500}
             className="mb-4"
           />
-          <h1 className="text-2xl font-bold mb-2 text-center text-blue-500">{domainDetails[currentDomain].title}</h1>
-          <p className="mb-4 text-center">{domainDetails[currentDomain].description}</p>
+          <h1 className="text-2xl font-bold mb-2 text-center text-blue-500">{domainDetails[domainKeys[currentDomainIndex]].title}</h1>
+          <p className="mb-4 text-center">{domainDetails[domainKeys[currentDomainIndex]].description}</p>
         </div>
         <div className="w-full sm:w-1/2 p-4">
-          <DomainChart datasetVisibility={{ [currentDomain]: true }} />
+          <DomainChart datasetVisibility={{ [domainKeys[currentDomainIndex]]: true }} />
         </div>
       </div>
     </section>
