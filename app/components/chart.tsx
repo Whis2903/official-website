@@ -16,22 +16,23 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
   useEffect(() => {
     if (!chartRef.current) return;
 
-    const web = [40, 70, 85, -10, 100, 70];
-    const events = [40, 70, 85, -10, 100, 70];
-    const editorial = [40, 70, 85, -10, 100, 70];
-    const business   = [40, 70, 85, -10, 100, 70];
-    const aiml = [40, 70, 85, -10, 100, 70];
+    const web = [80, 85, 80, 90, 70, 70]; // Web Development Domain
+    const events = [40, 90, 95, 75, 90, 60]; // Events Domain
+    const editorial = [50, 95, 65, 70, 85, 60]; // Editorial Domain
+    const business = [60, 95, 85, 95, 95, 80]; // Business Domain
+    const aiml = [95, 65, 80, 80, 65, 80]; // AI and Machine Learning Domain
+    
 
     const chartInstance = new Chart(chartRef.current, {
       type: "radar",
       data: {
         labels: [
-          "Parameter1",
-          "Parameter2",
-          "Parameter3",
-          "Parameter4",
-          "Parameter5",
-          "Parameter6",
+          "Technical Complexity",
+          "Creativity & Innovation",
+          "Collaboration & Teamwork",
+          "Market Relevance",
+          "Communication Skills",
+          "Analytical Thinking",
         ],
         datasets: [
           {
@@ -84,6 +85,11 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
         },
         scales: {
           r: {
+            min: 0, // Minimum value for scaling
+            max: 100, // Maximum value for scaling
+            ticks: {
+              stepSize: 20, // Adjust step size if needed
+            },
             pointLabels: {
               font: {
                 size: 16, // Adjust this value for smaller font size
