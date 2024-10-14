@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import { LuInstagram, LuLinkedin, LuTwitter } from "react-icons/lu";
 
@@ -12,16 +13,23 @@ const Hero = () => {
           </h1>
           <div className="flex flex-col gap-4">
             <p className="text-xl lg:text-2xl font-medium">
-              Join a community where learning never stops, and ambition turns into real-world impact. Ready to take your skills to the next level? Dive in and start building the future today!
+              Join a community where learning never stops, and ambition turns
+              into real-world impact. Ready to take your skills to the next
+              level? Dive in and start building the future today!
             </p>
           </div>
         </div>
         <div className="flex flex-col items-center gap-10">
           <img src="hero.png" alt="Hero" />
           <div className="flex flex-col items-center gap-5">
-            <button className="bg-blue-500 rounded-r-full rounded-l-full py-2 px-4">
-              <span className="text-white text-xl font-semibold">Join Us</span>
-            </button>
+            <Link href={"/pages/recruitmentPage"}>
+              <button className="bg-blue-500 rounded-r-full rounded-l-full py-2 px-4">
+                <span className="text-white text-xl font-semibold">
+                  Join Us
+                </span>
+              </button>
+            </Link>
+
             <div className="flex items-center gap-3">
               <LuInstagram size={25} />
               <LuTwitter size={25} />
