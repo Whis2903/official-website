@@ -82,20 +82,6 @@ function About() {
         />
       </section>
 
-      {/* <section className="py-10">
-        <div className="w-full flex justify-center mt-10 mb-8">
-          <h1 className="text-center text-4xl font-bold text-blue-500">About Us</h1>
-        </div>
-        <div className="flex flex-col lg:flex-row justify-between place-content-center items-center w-full px-4 md:px-10">
-          <div className="text-center lg:text-left lg:w-[50%] overflow-hidden">
-            <p className="text-2xl font-medium">
-              The LinkedIn Developer’s Society is a dynamic student-led club focused on empowering students with cutting-edge skills in AI, machine learning, web development, business strategy, and editorial work. Our goal is to foster a collaborative environment where students can expand their knowledge, participate in real-world projects, and grow both personally and professionally. Through workshops, mentorship, and hands-on experience, we prepare our members for the fast-evolving job market, equipping them with the technical and soft skills needed to thrive in various industries. We welcome students of all backgrounds who share a passion for learning, problem-solving, and innovation.
-            </p>
-          </div>
-          <Image src="/aboutus.png" alt="About Us" width={550} height={550} className="max-w-full h-auto" />
-        </div>
-      </section> */}
-
       {/* Our Mission */}
       <section className="bg-gradient-to-b from-blue-500 to-white to-[60%] flex flex-col place-content-center place-items-center gap-5">
         <div className="grid grid-cols-3 place-content-center place-items-center w-full">
@@ -196,20 +182,33 @@ function About() {
 
       {/* FAQ */}
       <section className="flex flex-col gap-5 place-content-center place-items-center">
-        <h1 className="text-center text-4xl font-semibold mt-2">
+        <h1 className="text-center text-5xl font-semibold my-3">
           We are here to answer all your questions :)
         </h1>
-        <div className="flex flex-col place-content-center place-items-center gap-5">
-          <p className="text-xl lg:text-2xl font-medium">
-            Some frequently asked questions
-          </p>
-          <FaqCard />
-          <FaqCard />
-          <FaqCard />
-          <h3 className="text-xl font-semibold">Got some more questions?</h3>
-          <button className="bg-blue-200 border-2 border-blue-500 px-4 py-2 rounded-2xl hover:bg-blue-300 transition duration-200">
-            <span className="text-lg font-medium">Get in touch</span>
-          </button>
+        <div className="flex justify-between items-center w-full pl-32 pr-10">
+          <div className="flex flex-col place-content-center place-items-center gap-5">
+            <p className="text-xl lg:text-2xl font-medium">
+              Some frequently asked questions
+            </p>
+            <FaqCard />
+            <FaqCard />
+            <FaqCard />
+            <h3 className="text-xl font-semibold">Got some more questions?</h3>
+            <button className="bg-blue-200 border-2 border-blue-500 px-4 py-2 rounded-2xl hover:bg-blue-300 transition duration-200">
+              <span className="text-lg font-medium">Get in touch</span>
+            </button>
+          </div>
+          <div className="grid lg:grid-cols-4 grid-rows-4 py-2">
+            {Array.from({ length: 16 }).map((_, index) => (
+              <div
+                key={index} // Added key prop
+                className="rounded-full h-24 w-24" // Added height and width for visibility
+                style={{
+                  background: `radial-gradient(circle at 20% 10%, #D9D9D9, #0062FF, #0062FF)`,
+                }}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
