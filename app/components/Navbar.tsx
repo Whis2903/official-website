@@ -18,7 +18,7 @@ function Navbar() {
           <Image
             src="/logo.png"
             alt=""
-            width={200}
+            width={245}
             height={10}
             className="hidden lg:block p-2 mx-auto"
           />

@@ -19,7 +19,7 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
     const web = [40, 70, 85, -10, 100, 70];
     const events = [40, 70, 85, -10, 100, 70];
     const editorial = [40, 70, 85, -10, 100, 70];
-    const corp = [40, 70, 85, -10, 100, 70];
+    const business   = [40, 70, 85, -10, 100, 70];
     const aiml = [40, 70, 85, -10, 100, 70];
 
     const chartInstance = new Chart(chartRef.current, {
@@ -60,11 +60,11 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
           },
           {
             label: "Business",
-            data: corp,
+            data: business,
             backgroundColor: "#00FFFF80", // Cyan
             borderColor: "#00FFFF",
             borderWidth: 3,
-            hidden: !datasetVisibility["Corporate"],
+            hidden: !datasetVisibility["Business"],
           },
           {
             label: "AI/ML",
