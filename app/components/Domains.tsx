@@ -18,27 +18,27 @@ type DomainInfo = {
 const domainDetails: Record<DomainKeys, DomainInfo> = {
   "Web-Dev": {
     title: "Web Development Domain",
-    description: "This domain encompasses various aspects of web development, including frontend and backend technologies, design principles, and user experience.",
+    description: "This domain focuses on building, designing, and maintaining websites and web applications. It covers a wide range of technologies and practices, including frontend development, which involves creating user interfaces and ensuring an engaging user experience (UX), and backend development, which handles server-side logic, databases, and application architecture. Web development also involves responsive design, accessibility, performance optimization, and the integration of modern frameworks and tools to create scalable, secure, and dynamic web solutions. It's an ever-evolving field that bridges creativity and technical expertise to deliver high-quality digital experiences.",
     imageSrc: "/webdev.gif",
   },
   Events: {
     title: "Events Domain",
-    description: "This domain covers the planning, organization, and management of events, focusing on aspects like marketing, logistics, and audience engagement.",
+    description: "This domain specializes in the strategic planning, seamless organization, and efficient management of events. It encompasses a wide range of functions, from conceptualizing event themes and coordinating logistics to executing marketing campaigns that drive attendance and engagement. The focus is on creating memorable experiences through meticulous attention to detail, ensuring that every aspect, from venue selection to audience interaction, runs smoothly. Whether it's a corporate event, a community gathering, or a large-scale conference, this domain thrives on delivering impactful, well-orchestrated events that leave a lasting impression.",
     imageSrc: "/events.gif",
   },
   Editorial: {
     title: "Editorial Domain",
-    description: "This domain focuses on content creation, editing, and publishing across various media platforms, emphasizing quality and audience targeting.",
+    description: "This domain is dedicated to the art and science of content creation, editing, and publishing across diverse media platforms, including digital, print, and social channels. It emphasizes producing high-quality, engaging content that aligns with the audience's needs and interests. From developing compelling narratives to ensuring clarity, accuracy, and consistency, the editorial process plays a critical role in building credibility and fostering engagement. The domain also focuses on effective audience targeting, ensuring that content is tailored to reach and resonate with the intended demographic while maintaining a strong editorial voice.",
     imageSrc: "/editorial.gif",
   },
   Business: {
     title: "Business Domain",
-    description: "This domain involves corporate communications, branding, and stakeholder engagement, crucial for business success.",
+    description: "This domain focuses on the strategic and operational aspects of running a successful business. It includes corporate communications, where businesses craft and deliver key messages to internal and external stakeholders, and branding, which involves building a strong, recognizable identity that resonates with the target audience. Additionally, it encompasses stakeholder engagement, fostering positive relationships with clients, partners, and investors. The domain covers business strategy, market analysis, financial planning, and leadership, driving growth and ensuring sustainable success in a competitive marketplace.",
     imageSrc: "/business.gif",
   },
   "AI/ML": {
     title: "AI and Machine Learning Domain",
-    description: "This domain explores artificial intelligence and machine learning technologies, focusing on their applications and implications across industries.",
+    description: "This domain delves into the cutting-edge fields of artificial intelligence (AI) and machine learning (ML), focusing on developing intelligent systems that can learn, adapt, and improve from experience. It involves the design and implementation of algorithms that enable machines to analyze complex data, recognize patterns, and make data-driven decisions. With applications ranging from predictive analytics and natural language processing to autonomous systems and deep learning, this domain plays a pivotal role in driving innovation across industries. By leveraging AI and ML, organizations can enhance efficiency, optimize processes, and uncover new opportunities for growth and problem-solving.",
     imageSrc: "/aiml.gif",
   },
 };
