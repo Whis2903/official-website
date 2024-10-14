@@ -11,7 +11,7 @@ function About() {
       <Navbar />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-500 to-blue-300 p-8 text-white text-center mt-2"> {/* Added mt-10 for margin-top */}
-        <h1 className="text-5xl font-bold mb-4">Welcome to the LinkedIn Developer’s Society!</h1>
+        <h1 className="text-5xl font-bold mb-4">Welcome to the LinkedIn Developers Society!</h1>
         <p className="text-xl max-w-2xl mx-auto mb-8">
           Empowering students with skills in AI, machine learning, web development, and more.
         </p>
