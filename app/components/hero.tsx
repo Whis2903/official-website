@@ -1,19 +1,8 @@
-'use client';
-import React, { useState } from "react";
+"use client";
+import React from "react";
 import { LuInstagram, LuLinkedin, LuTwitter } from "react-icons/lu";
-import Register from "./register";
 
 const Hero = () => {
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-
-  const handleJoinUsClick = () => {
-    setIsRegisterOpen(true); // Open the Register pop-up
-  };
-
-  const handleCloseModal = () => {
-    setIsRegisterOpen(false); // Close the Register pop-up
-  };
-
   return (
     <div>
       <div className="flex flex-col lg:flex-row justify-between items-center px-10 mt-6">
@@ -30,10 +19,7 @@ const Hero = () => {
         <div className="flex flex-col items-center gap-10">
           <img src="hero.png" alt="Hero" />
           <div className="flex flex-col items-center gap-5">
-            <button
-              className="bg-blue-500 rounded-r-full rounded-l-full py-2 px-4"
-              onClick={handleJoinUsClick}
-            >
+            <button className="bg-blue-500 rounded-r-full rounded-l-full py-2 px-4">
               <span className="text-white text-xl font-semibold">Join Us</span>
             </button>
             <div className="flex items-center gap-3">
@@ -44,21 +30,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Modal for Register Component */}
-      {isRegisterOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white/30 backdrop-blur-md p-6 rounded-lg shadow-lg relative">
-            <button
-              className="text-2xl absolute top-2 right-2 text-gray-600"
-              onClick={handleCloseModal}
-            >
-              &times;
-            </button>
-            <Register />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
