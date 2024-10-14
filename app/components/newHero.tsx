@@ -78,13 +78,13 @@ function NewHero() {
 
 export default NewHero;
 
-const Circle = ({ className, gradientPosition = "10% 15%" }) => {
-    return (
-      <div
-        className={`rounded-full ${className}`}
-        style={{
-          background: `radial-gradient(circle at ${gradientPosition}, #D9D9D9, #0062FF, #0062FF)`,
-        }}
-      />
-    );
-  };
+// const Circle = ({ className, gradientPosition = "10% 15%" }) => {
+//     return (
+//       <div
+//         className={`rounded-full ${className}`}
+//         style={{
+//           background: `radial-gradient(circle at ${gradientPosition}, #D9D9D9, #0062FF, #0062FF)`,
+//         }}
+//       />
+//     );
+//   };

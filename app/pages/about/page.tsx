@@ -7,19 +7,82 @@ import React from "react";
 
 function About() {
   return (
-    <div className="bg-gray-50">
+    <div>
       <Navbar />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-500 to-blue-300 p-8 text-white text-center mt-2"> {/* Added mt-10 for margin-top */}
-        <h1 className="text-5xl font-bold mb-4">Welcome to the LinkedIn Developers Society!</h1>
-        <p className="text-xl max-w-2xl mx-auto mb-8">
-          Empowering students with skills in AI, machine learning, web development, and more.
-        </p>
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-white opacity-20 rounded-t-full"></div>
+      <section className="bg-blue-500">
+        <div className="bg-black">
+          <div className="flex place-content-center place-items-center px-5 py-10">
+            <p className="text-white text-justify absolute opacity-25">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui
+              explicabo tempore libero culpa, quibusdam error? Deleniti nemo
+              consequatur perferendis tempora hic fuga, corrupti optio cum eaque
+              fugit modi voluptas esse reprehenderit ea dicta veritatis, quidem
+              iure. Vero possimus iste, nulla minus quis similique facilis enim
+              aliquam veritatis officiis blanditiis ea, ex laudantium architecto
+              eaque, perspiciatis sunt voluptate. Nesciunt blanditiis nostrum
+              officia quas doloremque iste est cumque nobis dignissimos deserunt
+              ratione dolores, quo expedita corporis veniam rerum neque maxime
+              molestias sequi, ea quasi! Quisquam sint minima itaque voluptatum,
+              nesciunt quia neque quam tenetur quo consequuntur at harum
+              molestias, a magnam dolores aut et maiores nostrum provident
+              dolore eveniet voluptatibus voluptas tempore minus? Excepturi
+              autem nemo hic, culpa corrupti nisi laborum, similique illo labore
+              sequi deleniti aliquid, fuga maxime odit ex sint alias amet. Eaque
+              non voluptatem in, nulla harum veniam totam dolores nobis vero
+              magnam eligendi rerum atque eveniet laudantium placeat? Ut
+              obcaecati aut maxime odio vel?
+            </p>
+            <h1 className="text-center text-[7.5rem] relative text-blue-500 font-bold">
+              LinkedIn Developers Club
+            </h1>
+          </div>
+          <div className="flex justify-between items-center w-full px-10 py-10">
+            <div className="flex flex-col place-content-center place-items-end gap-2">
+              <div className="flex items-center gap-2">
+                <Keys />
+                <Keys />
+                <Keys />
+                <Keys />
+                <Keys />
+              </div>
+              <div className="flex items-center gap-2">
+                <Keys />
+                <Keys />
+                <Keys />
+                <div>
+                  <div className="flex place-content-center place-items-center p-2 bg-gradient-to-tl from-blue-500 from-[20%] to-white rounded-2xl">
+                    <div className="flex place-content-end place-items-end h-24 w-44 bg-gradient-to-tl from-blue-600 to-white from-[15%] shadow-lg rounded-2xl hover:opacity-40 transition-opacity duration-300 p-3">
+                      <p className="text-2xl">Connect</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-[50%]">
+              <p className="text-white text-2xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                placeat iste fugiat corrupti accusantium. Rem voluptatem sed
+                porro rerum amet!
+              </p>
+              <p className="text-white text-2xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                placeat iste fugiat corrupti accusantium. Rem voluptatem sed
+                porro rerum amet!
+              </p>
+            </div>
+          </div>
+        </div>
+        <Image
+          src="/curvy.png"
+          alt=""
+          width={1500}
+          height={14}
+          className="-translate-y-1"
+        />
       </section>
 
-      {/* About Us */}
-      <section className="py-10">
+      {/* <section className="py-10">
         <div className="w-full flex justify-center mt-10 mb-8">
           <h1 className="text-center text-4xl font-bold text-blue-500">About Us</h1>
         </div>
@@ -31,23 +94,44 @@ function About() {
           </div>
           <Image src="/aboutus.png" alt="About Us" width={550} height={550} className="max-w-full h-auto" />
         </div>
-      </section>
+      </section> */}
 
       {/* Our Mission */}
-      <section className="flex flex-col place-content-center place-items-center gap-5">
+      <section className="bg-gradient-to-b from-blue-500 to-white to-[60%] flex flex-col place-content-center place-items-center gap-5">
         <div className="grid grid-cols-3 place-content-center place-items-center w-full">
-          <div className="h-[2px] w-full bg-blue-500" />
-          <h1 className="text-center text-2xl lg:text-4xl font-semibold">Our Mission</h1>
-          <div className="h-[2px] w-full bg-blue-500" />
+          <div className="h-[3px] w-full bg-black" />
+          <h1 className="text-center text-3xl lg:text-4xl font-semibold">
+            Our Mission
+          </h1>
+          <div className="h-[3px] w-full bg-black" />
         </div>
         <h1 className="text-center lg:text-left text-2xl font-medium">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
           dicta reprehenderit ab veritatis nostrum nihil?
         </h1>
         <div className="flex flex-col place-content-center place-items-center gap-0 w-full">
-          <Image src="/network.png" alt="Network" width={800} height={600} className="max-w-full h-auto" />
+          <Image
+            src="/network.png"
+            alt="Network"
+            width={800}
+            height={600}
+            className="max-w-full h-auto"
+          />
           <div className="bg-black w-full h-auto p-10">
-            <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 space-y-6 lg:space-y-0 lg:space-x-6 place-content-center place-items-center">
+            <div className="flex justify-between items-start w-full">
+              <div className="flex place-content-start place-items-start h-[35rem] w-[20rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-shrink-0 p-3">
+                <h1 className="text-2xl font-medium">Mission</h1>
+              </div>
+              <div className="flex flex-col gap-10 items-end flex-grow">
+                <div className="flex place-content-end place-items-end h-[17rem] w-[62rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-grow p-3">
+                  <h1 className="text-2xl font-medium">Vision</h1>
+                </div>
+                <div className="flex place-content-end place-items-start h-[15rem] w-[30rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-grow p-3">
+                  <h1 className="text-2xl font-medium">Goal</h1>
+                </div>
+              </div>
+            </div>
+            {/* <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 space-y-6 lg:space-y-0 lg:space-x-6 place-content-center place-items-center">
               <MissionCard
                 title={"Vision"}
                 text={
@@ -69,10 +153,12 @@ function About() {
                 }
                 className="h-40 lg:h-auto px-0 md:px-4 transition-transform transform hover:scale-105" // Added hover effect
               />
-            </div>
+            </div> */}
             <div className="grid grid-cols-3 place-items-center place-content-center w-full mt-14">
               <div className="h-[2px] w-full bg-blue-500" />
-              <h1 className="text-center text-white text-xl lg:text-4xl font-semibold">Our Sponsors</h1>
+              <h1 className="text-center text-white text-xl lg:text-4xl font-semibold">
+                Our Sponsors
+              </h1>
               <div className="h-[2px] w-full bg-blue-500" />
             </div>
 
@@ -133,3 +219,15 @@ function About() {
 }
 
 export default About;
+
+const Keys = () => {
+  return (
+    <div>
+      <div className="flex place-content-center place-items-center p-2 bg-gradient-to-tl from-blue-500 from-[20%] to-white rounded-2xl">
+        <div className="flex place-content-end place-items-end h-24 w-24 bg-gradient-to-tl from-blue-600 to-white from-[15%] shadow-lg rounded-2xl hover:opacity-40 transition-opacity duration-300 p-3">
+          <span className="text-2xl">o</span>
+        </div>
+      </div>
+    </div>
+  );
+};
