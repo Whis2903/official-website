@@ -120,7 +120,7 @@ const Domain = () => {
   );
 };
 
-const CustomNextArrow = (props: any) => (
+const CustomNextArrow = (props: React.HTMLProps<HTMLDivElement>) => (
   <div
     {...props}
     className="absolute top-1/2 right-4 transform -translate-y-1/2  text-black rounded-full w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-blue-400 transition"
@@ -129,7 +129,7 @@ const CustomNextArrow = (props: any) => (
   </div>
 );
 
-const CustomPrevArrow = (props: any) => (
+const CustomPrevArrow = (props: React.HTMLProps<HTMLDivElement>) => (
   <div
     {...props}
     className="absolute top-1/2 left-4 transform -translate-y-1/2 text-black rounded-full w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-blue-400 transition"
@@ -139,3 +139,4 @@ const CustomPrevArrow = (props: any) => (
 );
 
 export default Domain;
+
