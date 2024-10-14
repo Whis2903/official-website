@@ -6,13 +6,9 @@ import React from "react";
 
 const Projects: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      {" "}
-      {/* Flex column layout and minimum height for full screen */}
+    <div className="flex flex-col min-h-screen bg-black text-white"> {/* Added bg-black and text-white */}
       <Navbar />
-      <div className="container px-4 lg:mx-auto my-10 flex-grow">
-        {" "}
-        {/* Allow content to grow */}
+      <div className="container px-4 lg:mx-auto my-10 flex-grow"> 
         <h1 className="text-center text-2xl md:text-4xl font-bold text-blue-500 mb-8">
           Our Projects
         </h1>
@@ -35,12 +31,10 @@ const Projects: React.FC = () => {
               </div>
               <div className="mt-2 text-center font-medium">Sub-heading</div>
             </div>
-          ))}
+          ))} 
         </div> */}
         {/* Coming Soon Message */}
         <div className="flex flex-col items-center justify-center">
-          {" "}
-          {/* Added mb-10 for margin below */}
           <Image
             src="/brainstorming.jpg"
             alt="Planning"

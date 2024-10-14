@@ -110,6 +110,9 @@ const DomainChart: React.FC<DomainChartProps> = ({ datasetVisibility }) => {
             ticks: {
               stepSize: 20, // Adjust step size if needed
             },
+            grid: {
+              color: '#FFFFFF', // White color for grid lines
+            },
             pointLabels: {
               font: {
                 size: isMobile ? 8 : 16, // Smaller font size for mobile

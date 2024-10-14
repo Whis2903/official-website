@@ -20,10 +20,10 @@ function Carousel() {
   }, [Data.length]);
 
   return (
-    <section className="mt-10"> {/* Added margin-top class */}
-      <div className="grid grid-cols-3 place-content-center place-items-center w-full">
+    <section className="mt-0 bg-black w-full min-h-screen"> {/* Full-width black background with screen height */}
+      <div className="grid grid-cols-3 place-content-center place-items-center w-full py-10">
         <div className="h-[2px] w-[97%] bg-blue-500" />
-        <h1 className="text-4xl font-semibold text-center md:text-left"> {/* Centered text on mobile */}
+        <h1 className="text-4xl font-semibold text-center md:text-left text-white"> {/* Text is now white */}
           Our Events
         </h1>
         <div className="h-[2px] w-[97%] bg-blue-500" />

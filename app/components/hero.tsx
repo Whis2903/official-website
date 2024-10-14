@@ -5,8 +5,8 @@ import { LuInstagram, LuLinkedin, LuTwitter } from "react-icons/lu";
 
 const Hero = () => {
   return (
-    <div>
-      <div className="flex flex-col lg:flex-row justify-between items-center px-10 mt-6">
+    <div className="bg-black text-white py-6"> {/* Added padding to ensure black background */}
+      <div className="flex flex-col lg:flex-row justify-between items-center px-10">
         <div className="flex flex-col place-content-center place-items-center gap-8 lg:w-[35rem]">
           <h1 className="text-5xl lg:text-8xl font-bold text-blue-500">
             Building a network of developers since 2024

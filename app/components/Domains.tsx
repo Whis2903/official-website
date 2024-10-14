@@ -71,7 +71,7 @@ const Domain = () => {
   };
 
   return (
-    <section className="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+    <section className="bg-black text-white p-6 rounded-lg shadow-md"> {/* Changed to black background and white text */}
       {/* Header section */}
       <div className="grid grid-cols-3 place-content-center place-items-center w-full mb-4">
         <div className="h-[2px] w-[97%] bg-blue-500" />
@@ -85,13 +85,13 @@ const Domain = () => {
           <button
             key={key}
             onClick={() => setCurrentDomainIndex(index)}
-            className={`px-8 py-3 mx-2 rounded-lg text-lg transition-all duration-200 ease-in-out 
-                      ${
-                        currentDomainIndex === index
-                          ? "bg-blue-500 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300"
-                      }
-                      hover:shadow-md hover:scale-105`}
+            className={`px-6 py-3 mx-2 rounded-full text-lg transition-all duration-200 ease-in-out 
+                        ${
+                          currentDomainIndex === index
+                            ? "bg-blue-500 text-white shadow-lg"
+                            : "bg-white bg-opacity-10 backdrop-blur-md text-gray-200 shadow-sm hover:bg-white hover:bg-opacity-50"
+                        }
+                        hover:shadow-md hover:scale-105`}
           >
             {domainDetails[key].title}
           </button>
