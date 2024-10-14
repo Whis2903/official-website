@@ -4,11 +4,11 @@ import DomainChart from "./chart"; // Adjust path if necessary
 import Image from "next/image"; // If using Next.js
 
 type DomainKeys = "Web-Dev" | "Events" | "Editorial" | "Business" | "AI/ML";
-
+/*
 type DatasetVisibility = {
   [key in DomainKeys]: boolean;
 };
-
+*/
 type DomainInfo = {
   title: string;
   description: string;
