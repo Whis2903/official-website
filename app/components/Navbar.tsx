@@ -18,16 +18,16 @@ function Navbar() {
           <Image
             src="/logo.png"
             alt=""
-            width={250}
+            width={200}
             height={10}
-            className="hidden lg:block"
+            className="hidden lg:block p-2 mx-auto"
           />
           <Image
             src="/logo.png"
             alt=""
             width={200}
             height={10}
-            className="lg:hidden"
+            className="lg:hidden p-2 mx-auto"
           />
         </a>
         <div className="lg:hidden" onClick={handleMenu}>
