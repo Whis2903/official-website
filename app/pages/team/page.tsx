@@ -3,7 +3,7 @@ import Navbar from "@/app/components/Navbar";
 
 const TeamPage = () => {
   return (
-    <div>
+    <div className="bg-black text-white min-h-screen"> {/* Added bg-black and text-white for a dark theme */}
       <Navbar />
       <div className="flex flex-col gap-10 mt-8"> {/* Added margin-top here */}
         {/* Core Section */}

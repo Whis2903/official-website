@@ -6,13 +6,9 @@ import React from "react";
 
 const Events: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      {" "}
-      {/* Flex column layout and minimum height for full screen */}
+    <div className="flex flex-col min-h-screen bg-black text-white"> {/* Added black background and white text */}
       <Navbar />
       <div className="container px-4 lg:mx-auto my-10 flex-grow">
-        {" "}
-        {/* Allow content to grow */}
         <h1 className="text-center text-2xl md:text-4xl font-bold text-blue-500 mb-8">
           Our Events
         </h1>
@@ -38,9 +34,7 @@ const Events: React.FC = () => {
           ))}
         </div> */}
         {/* Coming Soon Message */}
-        <div className="flex flex-col items-center justify-center ">
-          {" "}
-          {/* Added mb-10 for margin below */}
+        <div className="flex flex-col items-center justify-center mb-10"> {/* Added mb-10 for margin below */}
           <Image
             src="/eventplanning.jpg"
             alt="Planning"
