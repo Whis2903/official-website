@@ -89,10 +89,10 @@ const Domain = () => {
       </div>
       <div className="relative sm:hidden mb-6">
         <Slider {...settings}>
-          {Object.keys(domainDetails).map((key) => (
+          {Object.entries(domainDetails).map(([key, domain]) => (
             <div key={key} className="flex flex-col items-center">
               <h2 className="text-xl font-bold mb-2 text-blue-500 text-center">
-                {domainDetails[key].title}
+                {domain.title}
               </h2>
             </div>
           ))}
