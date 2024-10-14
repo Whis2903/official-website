@@ -7,9 +7,9 @@ import Footer from "@/app/components/footer";
 const RecruitmentPage = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <RecruitmentPortal />
-      <Footer/>
+      <Footer />
     </div>
   );
 };
