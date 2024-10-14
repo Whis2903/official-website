@@ -13,7 +13,6 @@ const HomePage: React.FC = () => {
       <Carousel />
       <Domain/>
       <Footer/>
-      <NewJoin/>
     </div>
   );
 };
