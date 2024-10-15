@@ -4,6 +4,18 @@ import Navbar from "@/app/components/Navbar";
 import Image from "next/image";
 import React from "react";
 
+const Keys = ({ letter }) => {
+  return (
+    <div>
+      <div className="flex place-content-center place-items-center p-2 bg-gradient-to-tl from-blue-500 from-[20%] to-white rounded-2xl">
+        <div className="flex place-content-end place-items-end h-24 w-24 bg-gradient-to-tl from-blue-600 to-white from-[15%] shadow-lg rounded-2xl hover:opacity-40 transition-opacity duration-300 p-3">
+          <span className="text-2xl font-bold text-white">{letter}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 function About() {
   return (
     <div>
@@ -25,22 +37,19 @@ function About() {
             >
               LinkedIn Developers Society
             </h1>
-
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-center w-full px-5 lg:px-10 py-10">
             <div className="flex flex-col place-content-center place-items-end gap-2 hidden lg:flex"> {/* Hide on mobile */}
               <div className="flex items-center gap-2">
-                <Keys />
-                <Keys />
-                <Keys />
-                <Keys />
-                <Keys />
+                {["L", "I", "N", "K", "E"].map((letter, index) => (
+                  <Keys key={index} letter={letter} /> // Render keys for first line
+                ))}
               </div>
               <div className="flex items-center gap-2">
-                <Keys />
-                <Keys />
-                <Keys />
+                {["D", "I", "N"].map((letter, index) => (
+                  <Keys key={index + 5} letter={letter} /> // Render keys for second line with offset
+                ))}
                 <div>
                   <div className="flex place-content-center place-items-center p-2 bg-gradient-to-tl from-blue-500 from-[20%] to-white rounded-2xl">
                     <div className="flex place-content-end place-items-end h-24 w-44 bg-gradient-to-tl from-blue-600 to-white from-[15%] shadow-lg rounded-2xl hover:opacity-40 transition-opacity duration-300 p-3">
@@ -52,14 +61,10 @@ function About() {
             </div>
             <div className="w-full lg:w-[50%] mt-5 lg:mt-0 text-center">
               <p className="text-white text-xl lg:text-2xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                placeat iste fugiat corrupti accusantium. Rem voluptatem sed
-                porro rerum amet!
+                Welcome to the LinkedIn Developers Society, a vibrant community dedicated to empowering developers and fostering innovation. Our society is built on the belief that collaboration and knowledge-sharing are key to advancing our skills and driving impactful projects. We are committed to providing a platform where developers can connect, learn, and grow together.
               </p>
               <p className="text-white text-xl lg:text-2xl text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                placeat iste fugiat corrupti accusantium. Rem voluptatem sed
-                porro rerum amet!
+                Our mission is to bridge the gap between aspiring developers and industry experts. Through workshops, mentorship programs, and networking events, we strive to cultivate an inclusive environment that supports professional development and encourages creativity. Join us as we explore the ever-evolving tech landscape and build a future where every developer can thrive!
               </p>
             </div>
           </div>
@@ -97,7 +102,6 @@ function About() {
           />
           <div className="bg-black w-full h-auto p-5 lg:p-10">
             <div className="flex flex-col lg:flex-row justify-between items-start w-full">
-
               {/* Responsive Mission, Vision, and Goal Cards */}
               <div className="flex flex-col gap-4 w-full lg:w-[20rem]">
                 <div className="flex place-content-center place-items-center h-[35rem] md:h-[30rem] sm:h-[25rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-shrink-0 p-3 mb-5">
@@ -162,11 +166,6 @@ function About() {
         </div>
       </section>
 
-
-
-
-
-
       {/* FAQ */}
       <section className="flex flex-col gap-5 place-content-center place-items-center px-5">
         <h1 className="text-center text-5xl font-semibold my-3">
@@ -193,16 +192,3 @@ function About() {
 }
 
 export default About;
-
-
-const Keys = () => {
-  return (
-    <div>
-      <div className="flex place-content-center place-items-center p-2 bg-gradient-to-tl from-blue-500 from-[20%] to-white rounded-2xl">
-        <div className="flex place-content-end place-items-end h-24 w-24 bg-gradient-to-tl from-blue-600 to-white from-[15%] shadow-lg rounded-2xl hover:opacity-40 transition-opacity duration-300 p-3">
-          <span className="text-2xl">o</span>
-        </div>
-      </div>
-    </div>
-  );
-};
