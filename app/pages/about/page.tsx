@@ -4,7 +4,11 @@ import Navbar from "@/app/components/Navbar";
 import Image from "next/image";
 import React from "react";
 
-const Keys = ({ letter }) => {
+interface KeysProps {
+  letter: string; // 'letter' is expected to be a string
+}
+
+const Keys: React.FC<KeysProps> = ({ letter }) => {
   return (
     <div>
       <div className="flex place-content-center place-items-center p-2 bg-gradient-to-tl from-blue-500 from-[20%] to-white rounded-2xl">
