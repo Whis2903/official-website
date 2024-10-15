@@ -74,11 +74,13 @@ function About() {
         </div>
         <Image
           src="/curvy.png"
-          alt=""
+          alt="Curvy Background"
+          layout="responsive" // This ensures the image is responsive to the container
           width={1500}
-          height={14}
-          className="-translate-y-1"
+          height={600}
+          className="w-full h-auto object-cover -translate-y-1" // Ensures the image fits the entire width
         />
+
       </section>
 
       {/* Our Mission */}
@@ -171,11 +173,13 @@ function About() {
           </div>
           <Image
             src="/curvy.png"
-            width={1500}
-            height={600}
             alt="Curvy Background"
-            className="-translate-y-1 max-w-full h-auto"
+            layout="responsive" // This ensures the image is responsive to the container
+            width={1600}
+            height={600}
+            className="w-full h-auto object-cover -translate-y-1" // Ensures the image fits the entire width
           />
+
         </div>
       </section>
 
