@@ -105,10 +105,10 @@ const RecruitmentForm = () => {
 
   return (
     <div className="bg-black h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundImage: "url('/recruitment.gif')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="bg-gray-800 p-6 rounded-2xl shadow-lg backdrop-blur-md w-full max-w-md md:max-w-2xl overflow-y-auto h-full max-h-[90vh]">
+      <div className="bg-gray-800 p-6 rounded-2xl shadow-lg backdrop-blur-md w-full max-w-md md:max-w-2xl overflow-y-auto h-full max-h-[80vh] min-w-0">
         <h1 className="text-center text-3xl md:text-4xl font-bold mb-6 text-white">Student Registration Form</h1>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+          <div className="grid grid-cols-2 gap-4">
             {/* Name */}
             <div>
               <input
