@@ -1,9 +1,7 @@
-"use client"; // Indicate this is a client component
-
 import React, { useState } from "react";
-import { z } from "zod"; // Make sure you have Zod imported
+import { z } from "zod";
 
-// Import your schema
+// Define the schema for form validation
 export const recruitmentSchema = z.object({
   name: z.string().trim().min(2).max(50),
   registrationNumber: z.string().trim().startsWith('RA').min(15).max(15),
@@ -19,6 +17,11 @@ export const recruitmentSchema = z.object({
   branch: z.string(),
   resume: z.string().url(),
 });
+
+// Define the shape of the errors state
+type Errors = {
+  [key: string]: string[] | undefined; // Each key can have an array of error messages or be undefined
+};
 
 const RecruitmentForm = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +40,7 @@ const RecruitmentForm = () => {
     resume: "",
   });
 
-  const [errors, setErrors] = useState({}); // To store validation errors
+  const [errors, setErrors] = useState<Errors>({}); // Set the type for errors
 
   // Handle changes for all inputs
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -71,6 +74,7 @@ const RecruitmentForm = () => {
 
       const responseData = await response.json();
       console.log('Form submitted successfully:', responseData);
+      
       // Optionally reset the form or display a success message here
       setFormData({
         name: "",
@@ -100,10 +104,10 @@ const RecruitmentForm = () => {
 
   return (
     <div className="bg-black h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundImage: "url('/recruitment.gif')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="bg-gray-800 p-6 rounded-2xl shadow-lg backdrop-blur-md w-full max-w-md md:max-w-2xl overflow-y-auto h-full max-h-[90vh]"> {/* Added overflow-y-auto and max-h for mobile view */}
+      <div className="bg-gray-800 p-6 rounded-2xl shadow-lg backdrop-blur-md w-full max-w-md md:max-w-2xl overflow-y-auto h-full max-h-[90vh]">
         <h1 className="text-center text-3xl md:text-4xl font-bold mb-6 text-white">Student Registration Form</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Responsive grid for fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Name */}
             <div>
               <input
@@ -181,7 +185,7 @@ const RecruitmentForm = () => {
           />
           {errors.classSection && <p className="text-red-500">{errors.classSection.join(', ')}</p>}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Responsive grid for Year and Semester */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Year Dropdown */}
             <div>
               <select
@@ -223,7 +227,7 @@ const RecruitmentForm = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Responsive grid for Gender and Domain */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Gender Dropdown */}
             <div>
               <select
@@ -241,77 +245,68 @@ const RecruitmentForm = () => {
               {errors.gender && <p className="text-red-500">{errors.gender.join(', ')}</p>}
             </div>
 
-            {/* Domain Dropdown */}
+            {/* Domain */}
             <div>
-              <select
+              <input
+                type="text"
                 name="domain"
+                placeholder="Domain"
                 value={formData.domain}
                 onChange={handleChange}
-                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
                 required
-              >
-                <option value="" disabled>Select Domain</option>
-                <option value="Development">Development</option>
-                <option value="Design">Design</option>
-                <option value="Management">Management</option>
-              </select>
+              />
               {errors.domain && <p className="text-red-500">{errors.domain.join(', ')}</p>}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Responsive grid for Department and Branch */}
-            {/* Department Dropdown */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Department */}
             <div>
-              <select
+              <input
+                type="text"
                 name="department"
+                placeholder="Department"
                 value={formData.department}
                 onChange={handleChange}
-                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
                 required
-              >
-                <option value="" disabled>Select Department</option>
-                <option value="CSE">CSE</option>
-                <option value="ECE">ECE</option>
-                <option value="ME">ME</option>
-                <option value="CE">CE</option>
-              </select>
+              />
               {errors.department && <p className="text-red-500">{errors.department.join(', ')}</p>}
             </div>
 
-            {/* Branch Dropdown */}
+            {/* Branch */}
             <div>
-              <select
+              <input
+                type="text"
                 name="branch"
+                placeholder="Branch"
                 value={formData.branch}
                 onChange={handleChange}
-                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
                 required
-              >
-                <option value="" disabled>Select Branch</option>
-                <option value="IT">IT</option>
-                <option value="AI">AI</option>
-                <option value="DS">DS</option>
-              </select>
+              />
               {errors.branch && <p className="text-red-500">{errors.branch.join(', ')}</p>}
+            </div>
+
+            {/* Resume */}
+            <div>
+              <input
+                type="url"
+                name="resume"
+                placeholder="Resume Link"
+                value={formData.resume}
+                onChange={handleChange}
+                className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
+                required
+              />
+              {errors.resume && <p className="text-red-500">{errors.resume.join(', ')}</p>}
             </div>
           </div>
 
-          {/* Resume Link */}
-          <input
-            type="url"
-            name="resume"
-            placeholder="Resume URL"
-            value={formData.resume}
-            onChange={handleChange}
-            className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
-            required
-          />
-          {errors.resume && <p className="text-red-500">{errors.resume.join(', ')}</p>}
-
-          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mt-4"
+            className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-xl font-bold transition duration-200"
           >
             Submit
           </button>
@@ -322,3 +317,4 @@ const RecruitmentForm = () => {
 };
 
 export default RecruitmentForm;
+
