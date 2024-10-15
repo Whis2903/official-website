@@ -181,8 +181,6 @@ function About() {
               Some frequently asked questions
             </p>
             <FaqCard />
-            <FaqCard />
-            <FaqCard />
             <h3 className="text-xl font-semibold text-center">Got some more questions?</h3>
             <button className="bg-blue-500 text-white px-4 py-2 rounded mb-10"> {/* Added mb-10 for margin */}
               Contact Us
