@@ -9,6 +9,7 @@ const RecruitmentPortal = () => {
   const [selectedGender, setSelectedGender] = useState<string>("");
   const [selectedDepartment, setSelectedDepartment] = useState<string>("");
   const [selectedBranch, setSelectedBranch] = useState<string>(""); // New state for Branch
+  const [resumeLink, setResumeLink] = useState<string>(""); // New state for Google Drive link
 
   const handleDomainChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedDomain(event.target.value);
@@ -30,8 +31,12 @@ const RecruitmentPortal = () => {
     setSelectedDepartment(event.target.value);
   };
 
-  const handleBranchChange = (event: React.ChangeEvent<HTMLSelectElement>) => { // New handler for Branch
+  const handleBranchChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedBranch(event.target.value);
+  };
+
+  const handleResumeLinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setResumeLink(event.target.value); // Capture the Google Drive link
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -43,10 +48,10 @@ const RecruitmentPortal = () => {
       semester: selectedSemester,
       gender: selectedGender,
       department: selectedDepartment,
-      branch: selectedBranch, // Include branch in data to submit
-      // Include additional form fields here as needed
+      branch: selectedBranch,
+      resumeLink: resumeLink, // Include the Google Drive link in the submission
     };
-
+  
     try {
       const response = await fetch('https://ldss-backend.onrender.com/api/recruitments/create', {
         method: 'POST',
@@ -55,11 +60,11 @@ const RecruitmentPortal = () => {
         },
         body: JSON.stringify(dataToSubmit),
       });
-
+  
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
+  
       const responseData = await response.json();
       console.log('Form submitted successfully:', responseData);
       // Optionally reset the form or display a success message here
@@ -200,7 +205,7 @@ const RecruitmentPortal = () => {
             </select>
             <select
               value={selectedBranch}
-              onChange={handleBranchChange} // New onChange for Branch
+              onChange={handleBranchChange}
               className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white mb-4 lg:mb-0"
               required
             >
@@ -214,11 +219,13 @@ const RecruitmentPortal = () => {
             </select>
           </div>
 
-          {/* Resume Upload */}
+          {/* Google Drive Link for Resume Upload */}
           <div className="flex flex-col gap-3">
             <input
-              type="file"
-              accept=".pdf"
+              type="text"
+              placeholder="Google Drive Link for Resume"
+              value={resumeLink}
+              onChange={handleResumeLinkChange}
               className="border-2 border-white rounded-xl w-full py-2 bg-gray-700 text-white mb-4"
               required
             />
