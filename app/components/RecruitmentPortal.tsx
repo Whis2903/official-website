@@ -8,6 +8,7 @@ const RecruitmentPortal = () => {
   const [selectedSemester, setSelectedSemester] = useState<string>("");
   const [selectedGender, setSelectedGender] = useState<string>("");
   const [selectedDepartment, setSelectedDepartment] = useState<string>("");
+  const [selectedBranch, setSelectedBranch] = useState<string>(""); // New state for Branch
 
   const handleDomainChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedDomain(event.target.value);
@@ -29,6 +30,10 @@ const RecruitmentPortal = () => {
     setSelectedDepartment(event.target.value);
   };
 
+  const handleBranchChange = (event: React.ChangeEvent<HTMLSelectElement>) => { // New handler for Branch
+    setSelectedBranch(event.target.value);
+  };
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     
@@ -38,6 +43,7 @@ const RecruitmentPortal = () => {
       semester: selectedSemester,
       gender: selectedGender,
       department: selectedDepartment,
+      branch: selectedBranch, // Include branch in data to submit
       // Include additional form fields here as needed
     };
 
@@ -177,7 +183,7 @@ const RecruitmentPortal = () => {
             </select>
           </div>
 
-          {/* Department Dropdown */}
+          {/* Department and Branch Dropdowns */}
           <div className="flex flex-col lg:flex-row lg:gap-4">
             <select
               value={selectedDepartment}
@@ -190,6 +196,20 @@ const RecruitmentPortal = () => {
               <option value="NWC">NWC</option>
               <option value="CINTEL">CINTEL</option>
               <option value="CTECH">CTECH</option>
+              <option value="OTHER">OTHER</option>
+            </select>
+            <select
+              value={selectedBranch}
+              onChange={handleBranchChange} // New onChange for Branch
+              className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white mb-4 lg:mb-0"
+              required
+            >
+              <option value="" disabled>Select Branch</option>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="ME">ME</option>
+              <option value="CE">CE</option>
+              <option value="EEE">EEE</option>
               <option value="OTHER">OTHER</option>
             </select>
           </div>
