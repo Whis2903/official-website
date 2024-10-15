@@ -6,7 +6,7 @@ import Footer from "@/app/components/footer";
 
 const RecruitmentPage = () => {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen"> {/* Set gradient background */}
       <Navbar />
       <RecruitmentPortal />
       <Footer />
