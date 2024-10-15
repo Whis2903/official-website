@@ -17,7 +17,7 @@ function NewHero() {
             }}
           />
           <div
-            className="h-40 w-40 rounded-full md:h-44 md:w-44 translate-y-10"
+            className="h-40 w-40 rounded-full md:h-44 md:w-44 translate-y-14"
             style={{
               background:
                 "radial-gradient(circle at 10% 15%, #D9D9D9, #0062FF, #0062FF)",
@@ -33,7 +33,7 @@ function NewHero() {
             }}
           />
           <div
-            className="h-36 w-36 rounded-full md:h-40 md:w-40 translate-x-5"
+            className="h-36 w-36 rounded-full md:h-40 md:w-40 translate-x-7"
             style={{
               background:
                 "radial-gradient(circle at 10% 15%, #D9D9D9, #0062FF, #0062FF)",
@@ -55,22 +55,21 @@ function NewHero() {
                 "radial-gradient(circle at 20% 5%, #D9D9D9, #0062FF, #0062FF)",
             }}
           />
+          
         </div>
       </div>
       <div className="flex flex-col md:flex-row justify-between w-full items-center px-5 py-4 relative z-10">
         <div className="flex flex-col w-full md:w-1/2 gap-5 text-center md:text-left">
-          <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-white to-blue-500 to-[40%] text-5xl md:text-6xl lg:text-8xl font-bold">
+          <h1 className="text-white text-5xl md:text-6xl lg:text-8xl font-bold text-center md:text-left animate-pulse"
+              style={{
+                textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)",
+              }}>
             Building a network of developers since 2024
           </h1>
 
+
           <p className="text-white text-lg md:text-xl font-medium">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid,
-            iste.
-          </p>
-          <p className="text-white text-lg md:text-xl font-medium">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perferendis fugit provident perspiciatis doloremque nisi vitae.
-          </p>
+            We believe in the power of community to drive innovation and growth. By connecting developers from all walks of life, we offer a space to learn, collaborate, and create. Join us in shaping the future of technology through shared knowledge and groundbreaking projects.          </p>
         </div>
         <div className="w-full md:w-1/2 flex justify-center sm:mx-auto">
           <Image 
