@@ -15,9 +15,17 @@ function About() {
             <p className="text-white text-justify absolute inset-0 opacity-25 lg:w-full lg:h-full p-5 overflow-hidden">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi possimus error harum tenetur dolore. Voluptatem omnis facere, illum incidunt nulla temporibus expedita. Reprehenderit veniam aut aliquid sequi rem, explicabo nesciunt atque nobis, est dolores harum maxime laboriosam quo! Est quidem placeat repellat fugit molestiae officia, vero laudantium dolorem reiciendis nostrum sint consectetur. Nemo eius, magni consequuntur recusandae deserunt, necessitatibus veniam fugit facilis fuga ipsum, officia dolore hic neque perspiciatis numquam. Ad ducimus odit accusamus dolorem iusto quos sint, rerum quod officiis fugiat corrupti culpa incidunt voluptas voluptatem enim quisquam, reprehenderit similique quibusdam! Fuga rerum asperiores neque aliquid mollitia provident consequuntur, quia, molestias placeat unde totam expedita veritatis dolor? Mollitia expedita architecto dolor harum maiores odio sit cupiditate sed exercitationem, porro facere et sequi illum beatae non ipsa iusto asperiores inventore. Itaque delectus qui quo hic perferendis cumque, ipsam quod exercitationem optio iste voluptas minus ullam neque id repudiandae nulla dicta amet aspernatur praesentium sit officia omnis! Molestias dolorem qui impedit obcaecati tempora? Quae nihil quasi, cum, consequatur quis pariatur aliquid voluptatem corporis necessitatibus molestiae tempora minus voluptas, voluptatum saepe doloremque neque? Incidunt quasi culpa nulla recusandae in numquam, iusto vitae quibusdam vero id? Dolorem eaque corporis eos neque maiores. Aliquid?
             </p>
-            <h1 className="text-center text-[4rem] md:text-[6rem] lg:text-[6rem] relative text-blue-500 font-bold z-10">
+            <h1
+              className="text-center text-[4rem] md:text-[6rem] lg:text-[6rem] relative font-bold z-10"
+              style={{
+                color: "transparent", // Make the inside of the text transparent
+                WebkitTextStroke: "2px #0062FF", // Blue outline for the text
+                textShadow: "none", // No shadow effect, only outline
+              }}
+            >
               LinkedIn Developers Society
             </h1>
+
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-center w-full px-5 lg:px-10 py-10">
