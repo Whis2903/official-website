@@ -49,7 +49,7 @@ const RecruitmentPortal = () => {
       gender: selectedGender,
       department: selectedDepartment,
       branch: selectedBranch,
-      resumeLink: resumeLink, // Include the Google Drive link in the submission
+      resumeLink: resumeLink, 
     };
   
     try {
@@ -140,10 +140,10 @@ const RecruitmentPortal = () => {
               required
             >
               <option value="" disabled>Select Year</option>
-              <option value="1st Year">1st Year</option>
-              <option value="2nd Year">2nd Year</option>
-              <option value="3rd Year">3rd Year</option>
-              <option value="4th Year">4th Year</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
             <select
               value={selectedSemester}
@@ -180,8 +180,8 @@ const RecruitmentPortal = () => {
               required
             >
               <option value="" disabled>Select Domain</option>
-              <option value="Web Development">Web Development</option>
-              <option value="AI/ML">AI/ML</option>
+              <option value="Web-Development">Web Development</option>
+              <option value="AI-ML">AI/ML</option>
               <option value="Editorial">Editorial</option>
               <option value="Corporate">Corporate</option>
               <option value="Events">Events</option>
