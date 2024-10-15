@@ -1,239 +1,317 @@
 "use client"; // Indicate this is a client component
 
 import React, { useState } from "react";
+import { z } from "zod"; // Make sure you have Zod imported
 
-const RecruitmentPortal = () => {
-  const [selectedDomain, setSelectedDomain] = useState<string>("");
-  const [selectedYear, setSelectedYear] = useState<string>("");
-  const [selectedSemester, setSelectedSemester] = useState<string>("");
-  const [selectedGender, setSelectedGender] = useState<string>("");
-  const [selectedDepartment, setSelectedDepartment] = useState<string>("");
-  const [selectedBranch, setSelectedBranch] = useState<string>(""); // New state for Branch
-  const [resumeLink, setResumeLink] = useState<string>(""); // New state for Google Drive link
+// Import your schema
+export const recruitmentSchema = z.object({
+  name: z.string().trim().min(2).max(50),
+  registrationNumber: z.string().trim().startsWith('RA').min(15).max(15),
+  collegeMail: z.string().email().endsWith('srmist.edu.in'),
+  personalMail: z.string().email(),
+  phoneNumber: z.string(),
+  classSection: z.string().toUpperCase(),
+  year: z.number().int().min(1).max(4),
+  semester: z.number().int().min(1).max(8),
+  gender: z.string(),
+  domain: z.string(),
+  department: z.string(),
+  branch: z.string(),
+  resume: z.string().url(),
+});
 
-  const handleDomainChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDomain(event.target.value);
-  };
+const RecruitmentForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    registrationNumber: "",
+    collegeMail: "",
+    personalMail: "",
+    phoneNumber: "",
+    classSection: "",
+    year: "",
+    semester: "",
+    gender: "",
+    domain: "",
+    department: "",
+    branch: "",
+    resume: "",
+  });
 
-  const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedYear(event.target.value);
-  };
+  const [errors, setErrors] = useState({}); // To store validation errors
 
-  const handleSemesterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedSemester(event.target.value);
-  };
-
-  const handleGenderChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedGender(event.target.value);
-  };
-
-  const handleDepartmentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDepartment(event.target.value);
-  };
-
-  const handleBranchChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedBranch(event.target.value);
-  };
-
-  const handleResumeLinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setResumeLink(event.target.value); // Capture the Google Drive link
+  // Handle changes for all inputs
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    
-    const dataToSubmit = {
-      domain: selectedDomain,
-      year: selectedYear,
-      semester: selectedSemester,
-      gender: selectedGender,
-      department: selectedDepartment,
-      branch: selectedBranch,
-      resumeLink: resumeLink, // Include the Google Drive link in the submission
-    };
-  
+
     try {
+      // Validate the data against the schema
+      const validatedData = recruitmentSchema.parse({
+        ...formData,
+        year: Number(formData.year),
+        semester: Number(formData.semester),
+      });
+
+      // Send validated data to the server
       const response = await fetch('https://ldss-backend.onrender.com/api/recruitments/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(dataToSubmit),
+        body: JSON.stringify(validatedData),
       });
-  
+
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Failed to submit the form');
       }
-  
+
       const responseData = await response.json();
       console.log('Form submitted successfully:', responseData);
       // Optionally reset the form or display a success message here
+      setFormData({
+        name: "",
+        registrationNumber: "",
+        collegeMail: "",
+        personalMail: "",
+        phoneNumber: "",
+        classSection: "",
+        year: "",
+        semester: "",
+        gender: "",
+        domain: "",
+        department: "",
+        branch: "",
+        resume: ""
+      });
     } catch (error) {
-      console.error('Error submitting form:', error);
-      // Optionally display an error message here
+      if (error instanceof z.ZodError) {
+        // If validation fails, set the errors
+        const validationErrors = error.flatten();
+        setErrors(validationErrors.fieldErrors);
+      } else {
+        console.error('Error submitting form:', error);
+      }
     }
   };
 
   return (
-    <div className="bg-black p-10 relative overflow-hidden" style={{ backgroundImage: "url('/recruitment.gif')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <h1 className="text-center text-5xl font-bold mb-6 text-white">
-        Student Registration Form
-      </h1>
-      <div className="flex justify-center items-center w-full">
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-4 w-full max-w-2xl bg-gray-800 p-6 rounded-2xl shadow-lg backdrop-blur-md"
-        >
-          {/* Full name and registration number */}
-          <div className="flex flex-col lg:flex-row lg:gap-4">
-            <input
-              type="text"
-              placeholder="Name"
-              className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Registration Number"
-              className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            />
+    <div className="bg-black h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundImage: "url('/recruitment.gif')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="bg-gray-800 p-6 rounded-2xl shadow-lg backdrop-blur-md w-full max-w-md md:max-w-2xl overflow-y-auto h-full max-h-[90vh]"> {/* Added overflow-y-auto and max-h for mobile view */}
+        <h1 className="text-center text-3xl md:text-4xl font-bold mb-6 text-white">Student Registration Form</h1>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Responsive grid for fields */}
+            {/* Name */}
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
+                required
+              />
+              {errors.name && <p className="text-red-500">{errors.name.join(', ')}</p>}
+            </div>
+
+            {/* Registration Number */}
+            <div>
+              <input
+                type="text"
+                name="registrationNumber"
+                placeholder="Registration Number"
+                value={formData.registrationNumber}
+                onChange={handleChange}
+                className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
+                required
+              />
+              {errors.registrationNumber && <p className="text-red-500">{errors.registrationNumber.join(', ')}</p>}
+            </div>
           </div>
 
-          {/* Email IDs and Phone Number */}
-          <div className="flex flex-col lg:flex-row lg:gap-4">
-            <input
-              type="email"
-              placeholder="SRM Email"
-              className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            />
-            <input
-              type="email"
-              placeholder="Personal Email"
-              className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            />
+          {/* College Email */}
+          <input
+            type="email"
+            name="collegeMail"
+            placeholder="SRM Email"
+            value={formData.collegeMail}
+            onChange={handleChange}
+            className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
+            required
+          />
+          {errors.collegeMail && <p className="text-red-500">{errors.collegeMail.join(', ')}</p>}
+
+          {/* Personal Email */}
+          <input
+            type="email"
+            name="personalMail"
+            placeholder="Personal Email"
+            value={formData.personalMail}
+            onChange={handleChange}
+            className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
+            required
+          />
+          {errors.personalMail && <p className="text-red-500">{errors.personalMail.join(', ')}</p>}
+
+          {/* Mobile Number */}
+          <input
+            type="tel"
+            name="phoneNumber"
+            placeholder="Mobile Number"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
+            required
+          />
+          {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber.join(', ')}</p>}
+
+          {/* Class Section */}
+          <input
+            type="text"
+            name="classSection"
+            placeholder="Class Section"
+            value={formData.classSection}
+            onChange={handleChange}
+            className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
+            required
+          />
+          {errors.classSection && <p className="text-red-500">{errors.classSection.join(', ')}</p>}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Responsive grid for Year and Semester */}
+            {/* Year Dropdown */}
+            <div>
+              <select
+                name="year"
+                value={formData.year}
+                onChange={handleChange}
+                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                required
+              >
+                <option value="" disabled>Select Year</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              {errors.year && <p className="text-red-500">{errors.year.join(', ')}</p>}
+            </div>
+
+            {/* Semester Dropdown */}
+            <div>
+              <select
+                name="semester"
+                value={formData.semester}
+                onChange={handleChange}
+                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                required
+              >
+                <option value="" disabled>Select Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+              {errors.semester && <p className="text-red-500">{errors.semester.join(', ')}</p>}
+            </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:gap-4">
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Class Section"
-              className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Responsive grid for Gender and Domain */}
+            {/* Gender Dropdown */}
+            <div>
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                required
+              >
+                <option value="" disabled>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              {errors.gender && <p className="text-red-500">{errors.gender.join(', ')}</p>}
+            </div>
+
+            {/* Domain Dropdown */}
+            <div>
+              <select
+                name="domain"
+                value={formData.domain}
+                onChange={handleChange}
+                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                required
+              >
+                <option value="" disabled>Select Domain</option>
+                <option value="Development">Development</option>
+                <option value="Design">Design</option>
+                <option value="Management">Management</option>
+              </select>
+              {errors.domain && <p className="text-red-500">{errors.domain.join(', ')}</p>}
+            </div>
           </div>
 
-          {/* Year and Semester Dropdowns */}
-          <div className="flex flex-col lg:flex-row lg:gap-4">
-            <select
-              value={selectedYear}
-              onChange={handleYearChange}
-              className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            >
-              <option value="" disabled>Select Year</option>
-              <option value="1st Year">1st Year</option>
-              <option value="2nd Year">2nd Year</option>
-              <option value="3rd Year">3rd Year</option>
-              <option value="4th Year">4th Year</option>
-            </select>
-            <select
-              value={selectedSemester}
-              onChange={handleSemesterChange}
-              className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            >
-              <option value="" disabled>Select Semester</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Responsive grid for Department and Branch */}
+            {/* Department Dropdown */}
+            <div>
+              <select
+                name="department"
+                value={formData.department}
+                onChange={handleChange}
+                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                required
+              >
+                <option value="" disabled>Select Department</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="ME">ME</option>
+                <option value="CE">CE</option>
+              </select>
+              {errors.department && <p className="text-red-500">{errors.department.join(', ')}</p>}
+            </div>
+
+            {/* Branch Dropdown */}
+            <div>
+              <select
+                name="branch"
+                value={formData.branch}
+                onChange={handleChange}
+                className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white"
+                required
+              >
+                <option value="" disabled>Select Branch</option>
+                <option value="IT">IT</option>
+                <option value="AI">AI</option>
+                <option value="DS">DS</option>
+              </select>
+              {errors.branch && <p className="text-red-500">{errors.branch.join(', ')}</p>}
+            </div>
           </div>
 
-          {/* Gender and Domain Dropdowns */}
-          <div className="flex flex-col lg:flex-row lg:gap-4">
-            <select
-              value={selectedGender}
-              onChange={handleGenderChange}
-              className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            >
-              <option value="" disabled>Select Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-            <select
-              value={selectedDomain}
-              onChange={handleDomainChange}
-              className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            >
-              <option value="" disabled>Select Domain</option>
-              <option value="Web Development">Web Development</option>
-              <option value="AI/ML">AI/ML</option>
-              <option value="Editorial">Editorial</option>
-              <option value="Corporate">Corporate</option>
-              <option value="Events">Events</option>
-            </select>
-          </div>
+          {/* Resume Link */}
+          <input
+            type="url"
+            name="resume"
+            placeholder="Resume URL"
+            value={formData.resume}
+            onChange={handleChange}
+            className="border-2 border-white py-2 px-4 rounded-xl w-full bg-gray-700 text-white"
+            required
+          />
+          {errors.resume && <p className="text-red-500">{errors.resume.join(', ')}</p>}
 
-          {/* Department and Branch Dropdowns */}
-          <div className="flex flex-col lg:flex-row lg:gap-4">
-            <select
-              value={selectedDepartment}
-              onChange={handleDepartmentChange}
-              className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            >
-              <option value="" disabled>Select Department</option>
-              <option value="DSBS">DSBS</option>
-              <option value="NWC">NWC</option>
-              <option value="CINTEL">CINTEL</option>
-              <option value="CTECH">CTECH</option>
-              <option value="OTHER">OTHER</option>
-            </select>
-            <select
-              value={selectedBranch}
-              onChange={handleBranchChange}
-              className="rounded-xl py-2 px-4 border-2 border-white w-full bg-gray-700 text-white mb-4 lg:mb-0"
-              required
-            >
-              <option value="" disabled>Select Branch</option>
-              <option value="CSE">CSE</option>
-              <option value="ECE">ECE</option>
-              <option value="ME">ME</option>
-              <option value="CE">CE</option>
-              <option value="EEE">EEE</option>
-              <option value="OTHER">OTHER</option>
-            </select>
-          </div>
-
-          {/* Google Drive Link for Resume Upload */}
-          <div className="flex flex-col gap-3">
-            <input
-              type="text"
-              placeholder="Google Drive Link for Resume"
-              value={resumeLink}
-              onChange={handleResumeLinkChange}
-              className="border-2 border-white rounded-xl w-full py-2 bg-gray-700 text-white mb-4"
-              required
-            />
-          </div>
-
+          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded-xl mt-4"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mt-4"
           >
             Submit
           </button>
@@ -243,4 +321,4 @@ const RecruitmentPortal = () => {
   );
 };
 
-export default RecruitmentPortal;
+export default RecruitmentForm;
