@@ -22,7 +22,7 @@ const Hero = () => {
         <div className="flex flex-col items-center gap-10">
           <img src="hero.png" alt="Hero" />
           <div className="flex flex-col items-center gap-5">
-            <Link href={"/pages/recruitmentPage"}>
+            <Link href={"/recruitmentPage"}>
               <button className="bg-blue-500 rounded-r-full rounded-l-full py-2 px-4">
                 <span className="text-white text-xl font-semibold">
                   Join Us

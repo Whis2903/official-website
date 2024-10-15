@@ -41,63 +41,51 @@ function NewHero() {
           />
         </div>
         <div className="flex items-center justify-around w-full px-5">
-          <div
-            className="h-36 w-36 rounded-full md:h-40 md:w-40"
-            style={{
-              background:
-                "radial-gradient(circle at 90% 70%, #D9D9D9, #0062FF, #0062FF)",
-            }}
-          />
-          <div
-            className="h-32 w-32 rounded-full md:h-36 md:w-36 translate-x-5"
-            style={{
-              background:
-                "radial-gradient(circle at 20% 5%, #D9D9D9, #0062FF, #0062FF)",
-            }}
-          />
-          
         </div>
       </div>
       <div className="flex flex-col md:flex-row justify-between w-full items-center px-5 py-4 relative z-10">
         <div className="flex flex-col w-full md:w-1/2 gap-5 text-center md:text-left">
-          <h1 className="text-white text-5xl md:text-6xl lg:text-8xl font-bold text-center md:text-left"
-              style={{
-                textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)",
-              }}>
+          <h1
+            className="text-white text-5xl md:text-6xl lg:text-8xl font-bold text-center md:text-left"
+            style={{
+              textShadow:
+                "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)",
+            }}
+          >
             Building a network of developers since 2024
           </h1>
 
-
           <p className="text-white text-lg md:text-xl font-medium">
-            We believe in the power of community to drive innovation and growth. By connecting developers from all walks of life, we offer a space to learn, collaborate, and create. Join us in shaping the future of technology through shared knowledge and groundbreaking projects.          </p>
+            We believe in the power of community to drive innovation and growth.
+            By connecting developers from all walks of life, we offer a space to
+            learn, collaborate, and create. Join us in shaping the future of
+            technology through shared knowledge and groundbreaking projects.
+          </p>
         </div>
-        <div className="w-full md:w-1/2 flex justify-center sm:mx-auto">
-          <Image 
-            src="/Linkedin.png" 
-            alt="LinkedIn Logo" 
-            height={100} 
-            width={500} 
+        <div className="w-full md:w-1/2 flex flex-col items-center justify-center">
+          <Image
+            src="/Linkedin.png"
+            alt="LinkedIn Logo"
+            height={100}
+            width={500}
             className="max-w-xs md:max-w-none" // Set a maximum width for mobile
           />
+          {/* Button and Icons Section */}
+          <div className="flex flex-col items-center gap-5 mt-8"> {/* Added margin-top for spacing */}
+            <Link href="/pages/recruitmentPage" passHref>
+              <button className="bg-blue-500 rounded-full py-2 px-6">
+                <span className="text-white text-xl font-semibold">Join Us</span>
+              </button>
+            </Link>
+
+            <div className="flex items-center gap-6 mt-4">
+              <LuInstagram size={25} className="text-white" />
+              <LuLinkedin size={25} className="text-white" />
+              <LuTwitter size={25} className="text-white" />
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Join Us Section */}
-      <div className="flex flex-col items-center gap-5 mt-8"> {/* Added margin-top for spacing */}
-      <Link href={"/pages/recruitmentPage"}>
-        <button className="bg-blue-500 rounded-full py-2 px-6">
-          <span className="text-white text-xl font-semibold">
-            Join Us
-          </span>
-        </button>
-      </Link>
-
-      <div className="flex items-center gap-6 mt-4"> {/* Adjusted gap and added margin-top */}
-        <LuInstagram size={25} className="text-white" />
-        <LuLinkedin size={25} className="text-white" />
-        <LuTwitter size={25} className="text-white" />
-      </div>
-    </div>
     </div>
   );
 }
