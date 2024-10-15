@@ -172,27 +172,18 @@ function About() {
         <h1 className="text-center text-5xl font-semibold my-3">
           We are here to answer all your questions :)
         </h1>
-        <div className="flex flex-col lg:flex-row justify-between items-center w-full">
+        <div className="flex flex-col items-center w-full">
           <div className="flex flex-col place-content-center place-items-center gap-5 w-full lg:w-1/2">
-            <p className="text-xl lg:text-2xl font-medium">
+            <p className="text-xl lg:text-2xl font-medium text-center">
               Some frequently asked questions
             </p>
             <FaqCard />
             <FaqCard />
             <FaqCard />
-            <h3 className="text-xl font-semibold">Got some more questions?</h3>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded">
+            <h3 className="text-xl font-semibold text-center">Got some more questions?</h3>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded mb-10"> {/* Added mb-10 for margin */}
               Contact Us
             </button>
-          </div>
-          <div className="flex flex-col place-content-center place-items-center w-full lg:w-1/2">
-            <Image
-              src="/faq.png"
-              alt="FAQ"
-              width={300}
-              height={300}
-              className="max-w-full h-auto"
-            />
           </div>
         </div>
       </section>
