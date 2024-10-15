@@ -9,35 +9,19 @@ function About() {
     <div>
       <Navbar />
       {/* Hero Section */}
-      <section className="bg-blue-500">
+      <section className="bg-blue-500 overflow-hidden">
         <div className="bg-black">
-          <div className="flex place-content-center place-items-center px-5 py-10">
-            <p className="text-white text-justify absolute opacity-25">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui
-              explicabo tempore libero culpa, quibusdam error? Deleniti nemo
-              consequatur perferendis tempora hic fuga, corrupti optio cum eaque
-              fugit modi voluptas esse reprehenderit ea dicta veritatis, quidem
-              iure. Vero possimus iste, nulla minus quis similique facilis enim
-              aliquam veritatis officiis blanditiis ea, ex laudantium architecto
-              eaque, perspiciatis sunt voluptate. Nesciunt blanditiis nostrum
-              officia quas doloremque iste est cumque nobis dignissimos deserunt
-              ratione dolores, quo expedita corporis veniam rerum neque maxime
-              molestias sequi, ea quasi! Quisquam sint minima itaque voluptatum,
-              nesciunt quia neque quam tenetur quo consequuntur at harum
-              molestias, a magnam dolores aut et maiores nostrum provident
-              dolore eveniet voluptatibus voluptas tempore minus? Excepturi
-              autem nemo hic, culpa corrupti nisi laborum, similique illo labore
-              sequi deleniti aliquid, fuga maxime odit ex sint alias amet. Eaque
-              non voluptatem in, nulla harum veniam totam dolores nobis vero
-              magnam eligendi rerum atque eveniet laudantium placeat? Ut
-              obcaecati aut maxime odio vel?
+          <div className="relative flex flex-col lg:flex-row place-content-center place-items-center px-5 py-10">
+            <p className="text-white text-justify absolute inset-0 opacity-25 lg:w-full lg:h-full p-5 overflow-hidden">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi possimus error harum tenetur dolore. Voluptatem omnis facere, illum incidunt nulla temporibus expedita. Reprehenderit veniam aut aliquid sequi rem, explicabo nesciunt atque nobis, est dolores harum maxime laboriosam quo! Est quidem placeat repellat fugit molestiae officia, vero laudantium dolorem reiciendis nostrum sint consectetur. Nemo eius, magni consequuntur recusandae deserunt, necessitatibus veniam fugit facilis fuga ipsum, officia dolore hic neque perspiciatis numquam. Ad ducimus odit accusamus dolorem iusto quos sint, rerum quod officiis fugiat corrupti culpa incidunt voluptas voluptatem enim quisquam, reprehenderit similique quibusdam! Fuga rerum asperiores neque aliquid mollitia provident consequuntur, quia, molestias placeat unde totam expedita veritatis dolor? Mollitia expedita architecto dolor harum maiores odio sit cupiditate sed exercitationem, porro facere et sequi illum beatae non ipsa iusto asperiores inventore. Itaque delectus qui quo hic perferendis cumque, ipsam quod exercitationem optio iste voluptas minus ullam neque id repudiandae nulla dicta amet aspernatur praesentium sit officia omnis! Molestias dolorem qui impedit obcaecati tempora? Quae nihil quasi, cum, consequatur quis pariatur aliquid voluptatem corporis necessitatibus molestiae tempora minus voluptas, voluptatum saepe doloremque neque? Incidunt quasi culpa nulla recusandae in numquam, iusto vitae quibusdam vero id? Dolorem eaque corporis eos neque maiores. Aliquid?
             </p>
-            <h1 className="text-center text-[7.5rem] relative text-blue-500 font-bold">
-              LinkedIn Developers Club
+            <h1 className="text-center text-[4rem] md:text-[6rem] lg:text-[6rem] relative text-blue-500 font-bold z-10">
+              LinkedIn Developers Society
             </h1>
           </div>
-          <div className="flex justify-between items-center w-full px-10 py-10">
-            <div className="flex flex-col place-content-center place-items-end gap-2">
+
+          <div className="flex flex-col lg:flex-row justify-between items-center w-full px-5 lg:px-10 py-10">
+            <div className="flex flex-col place-content-center place-items-end gap-2 hidden lg:flex"> {/* Hide on mobile */}
               <div className="flex items-center gap-2">
                 <Keys />
                 <Keys />
@@ -58,13 +42,13 @@ function About() {
                 </div>
               </div>
             </div>
-            <div className="w-[50%]">
-              <p className="text-white text-2xl">
+            <div className="w-full lg:w-[50%] mt-5 lg:mt-0 text-center">
+              <p className="text-white text-xl lg:text-2xl">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
                 placeat iste fugiat corrupti accusantium. Rem voluptatem sed
                 porro rerum amet!
               </p>
-              <p className="text-white text-2xl">
+              <p className="text-white text-xl lg:text-2xl text-center">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
                 placeat iste fugiat corrupti accusantium. Rem voluptatem sed
                 porro rerum amet!
@@ -75,24 +59,23 @@ function About() {
         <Image
           src="/curvy.png"
           alt="Curvy Background"
-          layout="responsive" // This ensures the image is responsive to the container
+          layout="responsive"
           width={1500}
           height={600}
-          className="w-full h-auto object-cover -translate-y-1" // Ensures the image fits the entire width
+          className="w-full h-auto object-cover -translate-y-1"
         />
-
       </section>
 
       {/* Our Mission */}
-      <section className="bg-gradient-to-b from-blue-500 to-white to-[60%] flex flex-col place-content-center place-items-center gap-5">
-        <div className="grid grid-cols-3 place-content-center place-items-center w-full">
+      <section className="bg-gradient-to-b from-blue-500 to-white to-[60%] flex flex-col place-content-center place-items-center gap-5 overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 place-content-center place-items-center w-full px-5">
           <div className="h-[3px] w-full bg-black" />
           <h1 className="text-center text-3xl lg:text-4xl font-semibold">
             Our Mission
           </h1>
           <div className="h-[3px] w-full bg-black" />
         </div>
-        <h1 className="text-center lg:text-left text-2xl font-medium">
+        <h1 className="text-center lg:text-left text-2xl font-medium px-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
           dicta reprehenderit ab veritatis nostrum nihil?
         </h1>
@@ -104,44 +87,33 @@ function About() {
             height={600}
             className="max-w-full h-auto"
           />
-          <div className="bg-black w-full h-auto p-10">
-            <div className="flex justify-between items-start w-full">
-              <div className="flex place-content-start place-items-start h-[35rem] w-[20rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-shrink-0 p-3">
-                <h1 className="text-2xl font-medium">Mission</h1>
-              </div>
-              <div className="flex flex-col gap-10 items-end flex-grow">
-                <div className="flex place-content-end place-items-end h-[17rem] w-[62rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-grow p-3">
+          <div className="bg-black w-full h-auto p-5 lg:p-10">
+            <div className="flex flex-col lg:flex-row justify-between items-start w-full">
+
+              {/* Responsive Mission, Vision, and Goal Cards */}
+              <div className="flex flex-col gap-4 w-full lg:w-[20rem]">
+                <div className="flex place-content-center place-items-center h-[35rem] md:h-[30rem] sm:h-[25rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-shrink-0 p-3 mb-5">
+                  <h1 className="text-2xl font-medium">Mission</h1>
+                </div>
+                <div className="flex place-content-center place-items-center h-[35rem] md:h-[30rem] sm:h-[25rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-shrink-0 p-3 mb-5 lg:hidden">
                   <h1 className="text-2xl font-medium">Vision</h1>
                 </div>
-                <div className="flex place-content-end place-items-start h-[15rem] w-[30rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-grow p-3">
+                <div className="flex place-content-center place-items-center h-[35rem] md:h-[30rem] sm:h-[25rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-shrink-0 p-3 mb-5 lg:hidden">
+                  <h1 className="text-2xl font-medium">Goal</h1>
+                </div>
+              </div>
+
+              {/* Desktop view for Vision and Goal cards with responsive heights */}
+              <div className="hidden lg:flex flex-col gap-10 items-end flex-grow">
+                <div className="flex place-content-end place-items-end h-[25rem] md:h-[22rem] sm:h-[18rem] w-full lg:w-[62rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-grow p-3 flex-shrink">
+                  <h1 className="text-2xl font-medium">Vision</h1>
+                </div>
+                <div className="flex place-content-end place-items-start h-[20rem] md:h-[18rem] sm:h-[15rem] w-full lg:w-[30rem] rounded-xl bg-gradient-to-br from-blue-500 to-white flex-grow p-3">
                   <h1 className="text-2xl font-medium">Goal</h1>
                 </div>
               </div>
             </div>
-            {/* <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 space-y-6 lg:space-y-0 lg:space-x-6 place-content-center place-items-center">
-              <MissionCard
-                title={"Vision"}
-                text={
-                  "Our vision at the LinkedIn Developer’s Society is to create a vibrant community where students can thrive by mastering cutting-edge technologies and professional skills. We aim to bridge the gap between academic learning and real-world industry practices, empowering students to become innovative leaders who will shape the future of technology, business, and society."
-                }
-                className="h-40 lg:h-auto px-0 md:px-4 transition-transform transform hover:scale-105" // Added hover effect
-              />
-              <MissionCard
-                title={"Motivation"}
-                text={
-                  "Our club is passionate about learning and collaboration, aiming to equip students with the skills and confidence needed to navigate the digital world. We foster an inclusive environment that prioritizes creativity, critical thinking, and teamwork, empowering members to explore new horizons in AI, machine learning, web development, and business strategy."
-                }
-                className="h-40 lg:h-auto px-0 md:px-4 transition-transform transform hover:scale-105" // Added hover effect
-              />
-              <MissionCard
-                title={"Goal"}
-                text={
-                  "Our goal is to provide a platform where students can engage in hands-on projects, attend workshops, and benefit from mentorship programs that prepare them for success in both their academic and professional journeys. By cultivating technical expertise and essential soft skills, we aim to develop well-rounded individuals ready to excel in the dynamic industries of today and tomorrow."
-                }
-                className="h-40 lg:h-auto px-0 md:px-4 transition-transform transform hover:scale-105" // Added hover effect
-              />
-            </div> */}
-            <div className="grid grid-cols-3 place-items-center place-content-center w-full mt-14">
+            <div className="grid grid-cols-1 md:grid-cols-3 place-items-center place-content-center w-full mt-14">
               <div className="h-[2px] w-full bg-blue-500" />
               <h1 className="text-center text-white text-xl lg:text-4xl font-semibold">
                 Our Sponsors
@@ -150,7 +122,7 @@ function About() {
             </div>
 
             {/* Sponsors */}
-            <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-2 gap-4 place-content-center place-items-center mt-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 place-content-center place-items-center mt-5">
               <div className="flex flex-col items-center relative group">
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-2">
                   <img
@@ -179,17 +151,21 @@ function About() {
             height={600}
             className="w-full h-auto object-cover -translate-y-1" // Ensures the image fits the entire width
           />
-
         </div>
       </section>
 
+
+
+
+
+
       {/* FAQ */}
-      <section className="flex flex-col gap-5 place-content-center place-items-center">
+      <section className="flex flex-col gap-5 place-content-center place-items-center px-5">
         <h1 className="text-center text-5xl font-semibold my-3">
           We are here to answer all your questions :)
         </h1>
-        <div className="flex justify-between items-center w-full pl-32 pr-10">
-          <div className="flex flex-col place-content-center place-items-center gap-5">
+        <div className="flex flex-col lg:flex-row justify-between items-center w-full">
+          <div className="flex flex-col place-content-center place-items-center gap-5 w-full lg:w-1/2">
             <p className="text-xl lg:text-2xl font-medium">
               Some frequently asked questions
             </p>
@@ -197,30 +173,28 @@ function About() {
             <FaqCard />
             <FaqCard />
             <h3 className="text-xl font-semibold">Got some more questions?</h3>
-            <button className="bg-blue-200 border-2 border-blue-500 px-4 py-2 rounded-2xl hover:bg-blue-300 transition duration-200">
-              <span className="text-lg font-medium">Get in touch</span>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded">
+              Contact Us
             </button>
           </div>
-          <div className="grid lg:grid-cols-4 grid-rows-4 py-2">
-            {Array.from({ length: 16 }).map((_, index) => (
-              <div
-                key={index}
-                className="rounded-full h-24 w-24"
-                style={{
-                  background: `radial-gradient(circle at 20% 10%, #D9D9D9, #0062FF, #0062FF)`,
-                }}
-              />
-            ))}
+          <div className="flex flex-col place-content-center place-items-center w-full lg:w-1/2">
+            <Image
+              src="/faq.png"
+              alt="FAQ"
+              width={300}
+              height={300}
+              className="max-w-full h-auto"
+            />
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
 }
 
 export default About;
+
 
 const Keys = () => {
   return (
