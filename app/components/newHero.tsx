@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link"; // Import Link for navigation
+import { LuInstagram, LuTwitter, LuLinkedin } from "react-icons/lu"; // Import your social media icons
 
 function NewHero() {
   return (
@@ -80,6 +82,23 @@ function NewHero() {
           />
         </div>
       </div>
+
+      {/* Join Us Section */}
+      <div className="flex flex-col items-center gap-5 mt-8"> {/* Added margin-top for spacing */}
+      <Link href={"/pages/recruitmentPage"}>
+        <button className="bg-blue-500 rounded-full py-2 px-6">
+          <span className="text-white text-xl font-semibold">
+            Join Us
+          </span>
+        </button>
+      </Link>
+
+      <div className="flex items-center gap-6 mt-4"> {/* Adjusted gap and added margin-top */}
+        <LuInstagram size={25} className="text-white" />
+        <LuLinkedin size={25} className="text-white" />
+        <LuTwitter size={25} className="text-white" />
+      </div>
+    </div>
     </div>
   );
 }

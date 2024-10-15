@@ -71,7 +71,7 @@ const Domain = () => {
   };
 
   return (
-    <section className="bg-black text-white p-6 rounded-lg shadow-md"> {/* Changed to black background and white text */}
+    <section className="bg-black text-white p-6 rounded-lg shadow-md w-full"> {/* Ensure full width to avoid background issues */}
       {/* Header section */}
       <div className="grid grid-cols-3 place-content-center place-items-center w-full mb-4">
         <div className="h-[2px] w-[97%] bg-blue-500" />
