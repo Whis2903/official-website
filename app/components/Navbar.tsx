@@ -46,31 +46,31 @@ function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href="/"
-                className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+                className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
               >
                 Home
               </a>
               <a
                 href="/pages/team"
-                className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+                className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
               >
                 Team
               </a>
               <a
                 href="/pages/about"
-                className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+                className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
               >
                 About Us
               </a>
               <a
                 href="/pages/projects"
-                className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+                className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
               >
                 Projects
               </a>
               <a
                 href="/pages/events"
-                className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+                className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
               >
                 Events
               </a>
@@ -81,31 +81,31 @@ function Navbar() {
           <div className="lg:hidden w-[95%] flex flex-col items-end gap-4 mt-2 p-4 rounded-2xl backdrop-blur-md bg-black/30 border border-blue-500">
             <a
               href="/"
-              className="text-white  text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+              className="text-blue-500  text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
             >
               Home
             </a>
             <a
               href="/pages/team"
-              className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+              className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
             >
               Team
             </a>
             <a
               href="/pages/about"
-              className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+              className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
             >
               About Us
             </a>
             <a
               href="/pages/projects"
-              className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+              className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
             >
               Projects
             </a>
             <a
               href="/pages/events"
-              className="text-white text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
+              className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
             >
               Events
             </a>
