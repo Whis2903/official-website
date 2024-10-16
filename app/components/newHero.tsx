@@ -45,15 +45,10 @@ function NewHero() {
       </div>
       <div className="flex flex-col md:flex-row justify-between w-full items-center px-5 py-4 relative z-10">
         <div className="flex flex-col w-full md:w-1/2 gap-5 text-center md:text-left">
-          <h1
-            className="text-white text-5xl md:text-6xl lg:text-8xl font-bold text-center md:text-left"
-            style={{
-              textShadow:
-                "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)",
-            }}
-          >
-            Building a network of developers since 2024
-          </h1>
+        <h1 className="text-white text-5xl md:text-6xl lg:text-8xl font-bold text-center md:text-left">
+          Building a network of developers since 2024
+        </h1>
+
 
           <p className="text-white text-lg md:text-xl font-medium">
             We believe in the power of community to drive innovation and growth.
