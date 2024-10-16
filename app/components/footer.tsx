@@ -1,4 +1,4 @@
-import { LuInstagram, LuTwitter, LuLinkedin, LuGithub } from 'react-icons/lu'; 
+import { LuInstagram, LuLinkedin, LuGithub } from 'react-icons/lu'; 
 
 const Footer = () => {
   return (
