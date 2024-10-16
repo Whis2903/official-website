@@ -1,7 +1,9 @@
-"use client"
+/*"use client"*/
+import Image from "next/image";
+/*
 import React, { useState } from "react";
 import { z } from "zod";
-import Image from "next/image";
+
 
 // Define the schema for form validation
 export const recruitmentSchema = z.object({
@@ -24,8 +26,8 @@ export const recruitmentSchema = z.object({
 type Errors = {
   [key: string]: string[] | undefined; // Each key can have an array of error messages or be undefined
 };
-
-const RecruitmentForm = () => {
+*/
+const RecruitmentForm = () => {/*
   const [formData, setFormData] = useState({
     name: "",
     registrationNumber: "",
