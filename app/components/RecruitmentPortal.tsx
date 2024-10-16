@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { z } from "zod";
+import Image from "next/image";
 
 // Define the schema for form validation
 export const recruitmentSchema = z.object({
@@ -102,14 +103,14 @@ const RecruitmentForm = () => {
       }
     }
   };
-
+/*
   return (
     <div className="bg-black h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundImage: "url('/recruitment.gif')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="bg-gray-800 p-6 rounded-2xl shadow-lg backdrop-blur-md w-full max-w-md md:max-w-2xl overflow-y-auto h-full max-h-[80vh] min-w-0">
         <h1 className="text-center text-3xl md:text-4xl font-bold mb-6 text-white">Student Registration Form</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
           <div className="grid grid-cols-2 gap-4">
-            {/* Name */}
+            
             <div>
               <input
                 type="text"
@@ -123,7 +124,7 @@ const RecruitmentForm = () => {
               {errors.name && <p className="text-red-500">{errors.name.join(', ')}</p>}
             </div>
 
-            {/* Registration Number */}
+            
             <div>
               <input
                 type="text"
@@ -138,7 +139,7 @@ const RecruitmentForm = () => {
             </div>
           </div>
 
-          {/* College Email */}
+          
           <input
             type="email"
             name="collegeMail"
@@ -150,7 +151,7 @@ const RecruitmentForm = () => {
           />
           {errors.collegeMail && <p className="text-red-500">{errors.collegeMail.join(', ')}</p>}
 
-          {/* Personal Email */}
+          
           <input
             type="email"
             name="personalMail"
@@ -162,7 +163,7 @@ const RecruitmentForm = () => {
           />
           {errors.personalMail && <p className="text-red-500">{errors.personalMail.join(', ')}</p>}
 
-          {/* Mobile Number */}
+          
           <input
             type="tel"
             name="phoneNumber"
@@ -174,7 +175,7 @@ const RecruitmentForm = () => {
           />
           {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber.join(', ')}</p>}
 
-          {/* Class Section */}
+        
           <input
             type="text"
             name="classSection"
@@ -187,7 +188,7 @@ const RecruitmentForm = () => {
           {errors.classSection && <p className="text-red-500">{errors.classSection.join(', ')}</p>}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Year Dropdown */}
+            
             <div>
               <select
                 name="year"
@@ -205,7 +206,7 @@ const RecruitmentForm = () => {
               {errors.year && <p className="text-red-500">{errors.year.join(', ')}</p>}
             </div>
 
-            {/* Semester Dropdown */}
+          
             <div>
               <select
                 name="semester"
@@ -229,7 +230,7 @@ const RecruitmentForm = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Gender Dropdown */}
+          
             <div>
               <select
                 name="gender"
@@ -246,7 +247,7 @@ const RecruitmentForm = () => {
               {errors.gender && <p className="text-red-500">{errors.gender.join(', ')}</p>}
             </div>
 
-            {/* Domain */}
+          
             <div>
               <input
                 type="text"
@@ -262,7 +263,6 @@ const RecruitmentForm = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Department */}
             <div>
               <input
                 type="text"
@@ -276,7 +276,6 @@ const RecruitmentForm = () => {
               {errors.department && <p className="text-red-500">{errors.department.join(', ')}</p>}
             </div>
 
-            {/* Branch */}
             <div>
               <input
                 type="text"
@@ -290,7 +289,6 @@ const RecruitmentForm = () => {
               {errors.branch && <p className="text-red-500">{errors.branch.join(', ')}</p>}
             </div>
 
-            {/* Resume */}
             <div>
               <input
                 type="url"
@@ -314,8 +312,23 @@ const RecruitmentForm = () => {
         </form>
       </div>
     </div>
+    */
+  return(
+    <div className="bg-black h-screen flex flex-col items-center justify-center">
+      <Image
+        src="/brainstorming.jpg"
+        alt="Planning"
+        width={500}
+        height={500}
+        className="rounded-xl"
+      />
+      <h2 className="text-3xl font-bold text-blue-500 mt-6">Coming Soon!</h2>
+      <p className="mt-4 text-xl text-center text-white">
+        Recruitments are yet to open
+      </p>
+    </div>
+
   );
 };
 
 export default RecruitmentForm;
-
