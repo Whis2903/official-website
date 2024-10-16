@@ -1,4 +1,4 @@
-import { LuInstagram, LuTwitter, LuLinkedin } from 'react-icons/lu'; 
+import { LuInstagram, LuTwitter, LuLinkedin, LuGithub } from 'react-icons/lu'; 
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
 
       <div className="flex justify-center items-center gap-4 mt-5">
         <LuInstagram size={25} />
-        <LuTwitter size={25} />
+        <LuGithub size={25} />
         <LuLinkedin size={25} />
       </div>
 

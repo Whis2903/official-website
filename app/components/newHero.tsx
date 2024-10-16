@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link"; // Import Link for navigation
-import { LuInstagram, LuTwitter, LuLinkedin } from "react-icons/lu"; // Import your social media icons
+import { LuInstagram, LuTwitter, LuLinkedin, LuGithub } from "react-icons/lu"; // Import your social media icons
 
 function NewHero() {
   return (
@@ -45,11 +45,9 @@ function NewHero() {
       </div>
       <div className="flex flex-col md:flex-row justify-between w-full items-center px-5 py-4 relative z-10">
         <div className="flex flex-col w-full md:w-1/2 gap-5 text-center md:text-left">
-
-        <h1 className="text-white text-5xl md:text-6xl lg:text-8xl font-bold text-center md:text-left">
-          Building a network of developers since 2024
-        </h1>
-
+          <h1 className="text-white text-5xl md:text-6xl lg:text-8xl font-bold text-center md:text-left">
+            Building a network of developers since 2024
+          </h1>
           <p className="text-white text-lg md:text-xl font-medium">
             We believe in the power of community to drive innovation and growth.
             By connecting developers from all walks of life, we offer a space to
@@ -76,7 +74,7 @@ function NewHero() {
             <div className="flex items-center gap-6 mt-4">
               <LuInstagram size={25} className="text-white" />
               <LuLinkedin size={25} className="text-white" />
-              <LuTwitter size={25} className="text-white" />
+              <LuGithub size={25} className="text-white" />
             </div>
           </div>
         </div>
