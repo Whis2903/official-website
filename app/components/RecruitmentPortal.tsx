@@ -25,7 +25,7 @@ type Errors = {
   [key: string]: string[] | undefined; // Each key can have an array of error messages or be undefined
 };
 
-const RecruitmentForm = () => {
+const RecruitmentForm = () => {/*
   const [formData, setFormData] = useState({
     name: "",
     registrationNumber: "",
