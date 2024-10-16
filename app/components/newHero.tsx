@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link"; // Import Link for navigation
-import { LuInstagram, LuTwitter, LuLinkedin, LuGithub } from "react-icons/lu"; // Import your social media icons
+import { LuInstagram, LuLinkedin, LuGithub } from "react-icons/lu"; // Import your social media icons
 
 function NewHero() {
   return (
