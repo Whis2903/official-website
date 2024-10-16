@@ -78,7 +78,7 @@ function Navbar() {
           </div>
         </div>
         {menuOpen && (
-          <div className="lg:hidden w-[95%] flex flex-col items-end gap-4 mt-2 p-4 border-2 border-black rounded-2xl bg-white">
+          <div className="lg:hidden w-[95%] flex flex-col items-end gap-4 mt-2 p-4 rounded-2xl backdrop-blur-md bg-black/30 border border-blue-500">
             <a
               href="/"
               className="text-blue-500 text-xl font-semibold hover:underline underline-offset-4 underline-blue-500"
