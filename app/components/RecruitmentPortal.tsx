@@ -25,8 +25,8 @@ export const recruitmentSchema = z.object({
 // Define the shape of the errors state
 type Errors = {
   [key: string]: string[] | undefined; // Each key can have an array of error messages or be undefined
-};
-*/
+};*/
+
 const RecruitmentForm = () => {/*
   const [formData, setFormData] = useState({
     name: "",
