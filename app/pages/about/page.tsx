@@ -131,7 +131,7 @@ function About() {
             </div>
 
             {/* Sponsors */}
-            <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-2 gap-4 place-content-center place-items-center mt-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-content-center place-items-center mt-5">
               <div className="flex flex-col items-center relative group">
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-2">
                   <img
@@ -150,7 +150,18 @@ function About() {
                   />
                 </div>
               </div>
+              <div className="flex flex-col items-center relative group">
+                <div className="w-32 h-32 overflow-hidden mb-2"> {/* Removed 'rounded-full' */}
+                  <img
+                    src="/l.png" // Replace with the correct path for Sponsor 3
+                    alt="LinkedIn"
+                    className="w-full h-full object-fit"
+                  />
+                </div>
+              </div>
             </div>
+
+
           </div>
           <Image
             src="/curvy.png"
