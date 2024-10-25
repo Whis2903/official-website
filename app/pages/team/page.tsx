@@ -13,9 +13,9 @@ const TeamPage = () => {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { name: "Vishal Mohan Nair", position: "President" },
-              { name: "Ayush Panwar", position: "Vice President" },
-              { name: "Adityasankar Sengupta", position: "Vice President" },
+              { name: "Vishal Mohan Nair", position: "President/Founder" },
+              { name: "Ayush Panwar", position: "Vice President/Co-Founder" },
+              { name: "Adityasankar Sengupta", position: "Vice President/Co-Founder" },
               { name: "Ansh Semwhal", position: "Treasurer" },
             ].map((member, index) => (
               <div
