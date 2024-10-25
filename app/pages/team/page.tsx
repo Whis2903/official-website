@@ -65,8 +65,8 @@ const TeamPage = () => {
           {/* Centered Circles for the Last Two Heads with Same Gap */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4"> {/* Adjusted to match the first line */}
             {[
-              { name: "Ivan", position: "Head of Editorial" },
-              { name: "Judy", position: "Head of Marketing" },
+              { name: "Ivan", position: "Head of Business" },
+              { name: "Judy", position: "Head of Editorial" },
             ].map((member, index) => (
               <div
                 key={index}
