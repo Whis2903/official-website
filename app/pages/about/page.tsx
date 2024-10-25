@@ -15,7 +15,7 @@ const Keys: React.FC<KeysProps> = ({ letter }) => {
       <div className="flex place-content-center place-items-center p-2 bg-gradient-to-tl from-blue-500 from-[20%] to-white rounded-2xl">
         <div className="flex place-content-end place-items-end h-24 w-24 bg-gradient-to-tl from-blue-600 to-white from-[15%] shadow-lg rounded-2xl hover:opacity-40 transition-opacity duration-300 p-3">
           <span className="text-2xl font-bold text-white">{letter}</span>
-        </div>
+        </div>  
       </div>
     </div>
   );
